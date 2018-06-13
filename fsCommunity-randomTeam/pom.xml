@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>club.fsCommunity</groupId>
+    <artifactId>fsCommunity-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>club.fsCommunity</groupId>
+  <artifactId>fsCommunity-randomTeam</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  
+  <!-- 添加依赖 -->
+  <dependencies>
+  	<dependency>
+  		<!-- 依赖 fsCommunity-common 通用工具类 -->
+	  	<groupId>club.fsCommunity</groupId>
+	    <artifactId>fsCommunity-common</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+  
+  <!-- fsCommunity-randomTeam 下的 模块 -->
+  <modules>
+  	<module>fsCommunity-randomTeam-pojo</module>
+  	<module>fsCommunity-randomTeam-dao</module>
+  	<module>fsCommunity-randomTeam-service</module>
+  	<module>fsCommunity-randomTeam-web</module>
+  </modules>
+  
+  
+  <!-- 添加tomcat插件 -->
+  <build>
+  	<plugins>
+  		<plugin>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat7-maven-plugin</artifactId>
+			
+			<!-- 配置tomcat运行的端口以及运行的路径；要注意的是，这是在 taotao-manager 的pom.xml 文件里 配置的 -->
+			<configuration>
+				<port>8080</port>
+				<path>/</path> <!-- 因为是在 fsCommunity-randomTeam 的pom.xml 文件里 配置的，所以只写 / ， 意思是：localhost:8080/* 的路径都能使用tomcat；
+								并且 http://localhost:8080/ 就是访问 fsCommunity-randomTeam，不用再 写项目名 http://localhost:8080/fsCommunity-randomTeam   -->
+			</configuration>
+		</plugin>
+  	</plugins>
+  </build>
+  
+  
+  
+  
+</project>

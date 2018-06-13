@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 配置分页插件 -->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageHelper"> <!-- PageHelper 实现了 mybatis的 interceptor接口，所以 也是 一个 interceptor（拦截器）-->
+			<!-- 指定使用的数据库是什么；配置数据库方言，因为不同的数据库 分页的sql不一样 -->
+			<property name="dialect" value="mysql"/>
+		</plugin>
+	</plugins>
+
+</configuration>
