@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="club.fsCommunity.mapper.TeamMapper" >
+  <resultMap id="BaseResultMap" type="club.fsCommunity.pojo.Team" >
+    <id column="team_id" property="teamId" jdbcType="VARCHAR" />
+    <id column="game_id" property="gameId" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="member1" property="member1" jdbcType="VARCHAR" />
+    <result column="member2" property="member2" jdbcType="VARCHAR" />
+    <result column="member3" property="member3" jdbcType="VARCHAR" />
+    <result column="lineup" property="lineup" jdbcType="VARCHAR" />
+    <result column="opponent" property="opponent" jdbcType="VARCHAR" />
+    <result column="VSResult" property="vsresult" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="club.fsCommunity.pojo.Team" extends="BaseResultMap" >
+    <result column="descr" property="descr" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    team_id, game_id, NAME, member1, member2, member3, lineup, opponent, VSResult, status
+  </sql>
+  <sql id="Blob_Column_List" >
+    descr
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="club.fsCommunity.pojo.TeamExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from team
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="club.fsCommunity.pojo.TeamExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from team
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="club.fsCommunity.pojo.TeamKey" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from team
+    where team_id = #{teamId,jdbcType=VARCHAR}
+      and game_id = #{gameId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="club.fsCommunity.pojo.TeamKey" >
+    delete from team
+    where team_id = #{teamId,jdbcType=VARCHAR}
+      and game_id = #{gameId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="club.fsCommunity.pojo.TeamExample" >
+    delete from team
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="club.fsCommunity.pojo.Team" >
+    insert into team (team_id, game_id, NAME, 
+      member1, member2, member3, 
+      lineup, opponent, VSResult, 
+      status, descr)
+    values (#{teamId,jdbcType=VARCHAR}, #{gameId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{member1,jdbcType=VARCHAR}, #{member2,jdbcType=VARCHAR}, #{member3,jdbcType=VARCHAR}, 
+      #{lineup,jdbcType=VARCHAR}, #{opponent,jdbcType=VARCHAR}, #{vsresult,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{descr,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="club.fsCommunity.pojo.Team" >
+    insert into team
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="teamId != null" >
+        team_id,
+      </if>
+      <if test="gameId != null" >
+        game_id,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="member1 != null" >
+        member1,
+      </if>
+      <if test="member2 != null" >
+        member2,
+      </if>
+      <if test="member3 != null" >
+        member3,
+      </if>
+      <if test="lineup != null" >
+        lineup,
+      </if>
+      <if test="opponent != null" >
+        opponent,
+      </if>
+      <if test="vsresult != null" >
+        VSResult,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="descr != null" >
+        descr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="teamId != null" >
+        #{teamId,jdbcType=VARCHAR},
+      </if>
+      <if test="gameId != null" >
+        #{gameId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="member1 != null" >
+        #{member1,jdbcType=VARCHAR},
+      </if>
+      <if test="member2 != null" >
+        #{member2,jdbcType=VARCHAR},
+      </if>
+      <if test="member3 != null" >
+        #{member3,jdbcType=VARCHAR},
+      </if>
+      <if test="lineup != null" >
+        #{lineup,jdbcType=VARCHAR},
+      </if>
+      <if test="opponent != null" >
+        #{opponent,jdbcType=VARCHAR},
+      </if>
+      <if test="vsresult != null" >
+        #{vsresult,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="descr != null" >
+        #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="club.fsCommunity.pojo.TeamExample" resultType="java.lang.Integer" >
+    select count(*) from team
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update team
+    <set >
+      <if test="record.teamId != null" >
+        team_id = #{record.teamId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameId != null" >
+        game_id = #{record.gameId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member1 != null" >
+        member1 = #{record.member1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member2 != null" >
+        member2 = #{record.member2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member3 != null" >
+        member3 = #{record.member3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lineup != null" >
+        lineup = #{record.lineup,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opponent != null" >
+        opponent = #{record.opponent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vsresult != null" >
+        VSResult = #{record.vsresult,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.descr != null" >
+        descr = #{record.descr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update team
+    set team_id = #{record.teamId,jdbcType=VARCHAR},
+      game_id = #{record.gameId,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      member1 = #{record.member1,jdbcType=VARCHAR},
+      member2 = #{record.member2,jdbcType=VARCHAR},
+      member3 = #{record.member3,jdbcType=VARCHAR},
+      lineup = #{record.lineup,jdbcType=VARCHAR},
+      opponent = #{record.opponent,jdbcType=VARCHAR},
+      VSResult = #{record.vsresult,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      descr = #{record.descr,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update team
+    set team_id = #{record.teamId,jdbcType=VARCHAR},
+      game_id = #{record.gameId,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      member1 = #{record.member1,jdbcType=VARCHAR},
+      member2 = #{record.member2,jdbcType=VARCHAR},
+      member3 = #{record.member3,jdbcType=VARCHAR},
+      lineup = #{record.lineup,jdbcType=VARCHAR},
+      opponent = #{record.opponent,jdbcType=VARCHAR},
+      VSResult = #{record.vsresult,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="club.fsCommunity.pojo.Team" >
+    update team
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="member1 != null" >
+        member1 = #{member1,jdbcType=VARCHAR},
+      </if>
+      <if test="member2 != null" >
+        member2 = #{member2,jdbcType=VARCHAR},
+      </if>
+      <if test="member3 != null" >
+        member3 = #{member3,jdbcType=VARCHAR},
+      </if>
+      <if test="lineup != null" >
+        lineup = #{lineup,jdbcType=VARCHAR},
+      </if>
+      <if test="opponent != null" >
+        opponent = #{opponent,jdbcType=VARCHAR},
+      </if>
+      <if test="vsresult != null" >
+        VSResult = #{vsresult,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="descr != null" >
+        descr = #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where team_id = #{teamId,jdbcType=VARCHAR}
+      and game_id = #{gameId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="club.fsCommunity.pojo.Team" >
+    update team
+    set NAME = #{name,jdbcType=VARCHAR},
+      member1 = #{member1,jdbcType=VARCHAR},
+      member2 = #{member2,jdbcType=VARCHAR},
+      member3 = #{member3,jdbcType=VARCHAR},
+      lineup = #{lineup,jdbcType=VARCHAR},
+      opponent = #{opponent,jdbcType=VARCHAR},
+      VSResult = #{vsresult,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      descr = #{descr,jdbcType=LONGVARCHAR}
+    where team_id = #{teamId,jdbcType=VARCHAR}
+      and game_id = #{gameId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="club.fsCommunity.pojo.Team" >
+    update team
+    set NAME = #{name,jdbcType=VARCHAR},
+      member1 = #{member1,jdbcType=VARCHAR},
+      member2 = #{member2,jdbcType=VARCHAR},
+      member3 = #{member3,jdbcType=VARCHAR},
+      lineup = #{lineup,jdbcType=VARCHAR},
+      opponent = #{opponent,jdbcType=VARCHAR},
+      VSResult = #{vsresult,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
+    where team_id = #{teamId,jdbcType=VARCHAR}
+      and game_id = #{gameId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -4,18 +4,16 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <dependent-module archiveName="fsCommunity-randomTeam-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fsCommunity-randomTeam-service/fsCommunity-randomTeam-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="fsCommunity-randomTeam-dao-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fsCommunity-randomTeam-dao/fsCommunity-randomTeam-dao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="fsCommunity-randomTeam-pojo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fsCommunity-randomTeam-pojo/fsCommunity-randomTeam-pojo">
+        <dependent-module archiveName="fsCommunity-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fsCommunity-common/fsCommunity-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="fsCommunity-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fsCommunity-common/fsCommunity-common">
+        <dependent-module archiveName="fsCommunity-randomTeam-pojo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fsCommunity-randomTeam-pojo/fsCommunity-randomTeam-pojo">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="fsCommunity-randomTeam-web"/>

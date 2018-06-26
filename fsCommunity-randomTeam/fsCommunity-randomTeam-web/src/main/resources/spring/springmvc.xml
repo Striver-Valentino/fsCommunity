@@ -22,5 +22,6 @@
 	<!-- 静态资源映射 -->
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>  <!-- /WEB-INF/ 下的 资源 是不可以直接访问的，这里通过 springmvc 做中转 访问 /WEB-INF/ 下的 资源 -->
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+	<mvc:resources location="/WEB-INF/res/" mapping="/res/**"/>
 	
 </beans>
