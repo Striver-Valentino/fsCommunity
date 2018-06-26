@@ -9,7 +9,8 @@
 </head>
 <body>
 
-${regsuc }
+注册成功：${regsuc }
+登录成功：${loginsuc }
 
 </body>
 </html>

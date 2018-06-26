@@ -1,4 +1,4 @@
-package club.fsCommunity.utils;
+package club.fsCommunity.common.utils;
 
 import java.awt.Color;
 import java.awt.Font;

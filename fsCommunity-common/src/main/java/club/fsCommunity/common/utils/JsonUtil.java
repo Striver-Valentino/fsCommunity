@@ -1,4 +1,4 @@
-package club.fsCommunity.utils;
+package club.fsCommunity.common.utils;
 
 import java.util.Map;
 import java.util.Map.Entry;
