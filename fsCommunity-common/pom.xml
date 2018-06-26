@@ -15,6 +15,14 @@
   
   <!-- 添加依赖的jar包 -->
   <dependencies>
+  
+  	
+  	<dependency>
+		<groupId>club.fsCommunity</groupId>
+	    <artifactId>fsCommunity-randomTeam-pojo</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  
   	<!-- 时间操作组件 -->
 	<dependency>
 		<groupId>joda-time</groupId>
@@ -63,6 +71,11 @@
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-surefire-plugin</artifactId>
 		<version>2.17</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
 	</dependency>
 	
   </dependencies>
