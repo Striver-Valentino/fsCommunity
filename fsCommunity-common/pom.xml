@@ -66,6 +66,31 @@
 		<artifactId>slf4j-log4j12</artifactId>
 	</dependency>
 	
+	<!-- Spring -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-beans</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aspects</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+	</dependency>
 	
 	<dependency>
 		<groupId>org.apache.maven.plugins</groupId>
@@ -77,6 +102,42 @@
 		<groupId>com.alibaba</groupId>
 		<artifactId>fastjson</artifactId>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+	<dependency>
+	    <groupId>javax.mail</groupId>
+	    <artifactId>javax.mail-api</artifactId>
+	    <version>1.6.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+	<dependency>
+	    <groupId>com.sun.mail</groupId>
+	    <artifactId>javax.mail</artifactId>
+	    <version>1.6.0</version>
+	</dependency>
+	
+	<!-- AES加密依赖的库 -->
+	<dependency>
+	    <groupId>org.bouncycastle</groupId>
+	    <artifactId>bcprov-jdk15on</artifactId>
+	    <version>1.56</version>
+	</dependency>
+	
+	<!-- 七牛云SDK -->
+	<dependency>
+		<groupId>com.qiniu</groupId>
+		<artifactId>qiniu-java-sdk</artifactId>
+		<version>[7.2.0, 7.2.99]</version>
+	</dependency>
+	<!-- 七牛云SDK，编译版本 -->
+	<dependency>
+		<groupId>com.qiniu</groupId>
+		<artifactId>qiniu-java-sdk</artifactId>
+		<version>7.2.11</version>
+		<scope>compile</scope>
+	</dependency>
+	
 	
   </dependencies>
   

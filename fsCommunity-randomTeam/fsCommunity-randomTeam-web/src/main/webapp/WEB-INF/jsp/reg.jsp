@@ -44,34 +44,46 @@
                
               <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">邮箱<font color="red">*</font></label>
-                <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required lay-verify="email" autocomplete="off" class="layui-input">
+                <div class="layui-input-inline" style="width: 260px">
+                  <input type="text" id="L_email" name="email" required lay-verify="email" placeholder="注册成功后,请查收邮件激活账号" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">邮箱是您的用户名，也可以帮助您找回密码</div><font size="5" color="red">${regerror }</font>
               </div>
+              
               <div class="layui-form-item">
                 <label for="L_username" class="layui-form-label">游戏昵称<font color="red">*</font></label>
-                <div class="layui-input-inline">
+                <div class="layui-input-inline" style="width: 260px">
                   <input type="text" id="L_username" name="gameName" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">您在游戏中的昵称，如：小龙女</div>
               </div>
               <div class="layui-form-item">
                 <label for="L_pass" class="layui-form-label">密码<font color="red">*</font></label>
-                <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="password" required lay-verify="required|pass" autocomplete="off" class="layui-input">
+                <div class="layui-input-inline" style="width: 260px">
+                  <input type="password" id="L_pass" name="password" required lay-verify="required|pass" placeholder="建议不要与邮箱本身的密码一样" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">密码可以使用英文、数字，长度必须在10到16位之间</div>
               </div>
               <div class="layui-form-item">
                 <label for="L_repass" class="layui-form-label">确认密码<font color="red">*</font></label>
-                <div class="layui-input-inline">
+                <div class="layui-input-inline" style="width: 260px">
                   <input type="password" id="L_repass" name="repass" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
+                <div class="layui-form-mid layui-word-aux">请再次填写您的密码</div>
               </div>
+              
+				<div class="layui-form-item">
+	                <label for="L_repass" class="layui-form-label">您的头像</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                <button type="button" class="layui-btn" id="headUrlBtn" name="headUrlBtn" autocomplete="off">
+					  <i class="layui-icon">&#xe67c;</i>上传头像
+					</button>
+					<!-- 保存用户头像的链接 -->
+					<input id="headUrl" type="hidden" name="headUrl" />
+	              </div>
+				
               <div class="layui-form-item">
                 <label for="L_vercode" class="layui-form-label">验证码<font color="red">*</font></label>
-                <div class="layui-input-inline">
+                <div class="layui-input-inline" style="width: 260px">
                   <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请填写验证码" autocomplete="off" class="layui-input">
                 </div>
                 <div class=""> <!-- layui-form-mid -->
@@ -85,7 +97,7 @@
 	              <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary">
 	              	<i class="layui-icon layui-icon-ok"></i>
 	              </div> 
-	              <a href="/instructions/terms.html" target="_blank" style="position: relative; top: 4px; left: 5px; color: #999;">同意用户服务条款</a> 
+	              <a href="/inittermsOfService" target="_blank" style="position: relative; top: 4px; left: 5px; color: #999;">同意用户服务条款</a> 
               </div>
               
               <div class="layui-form-item">
@@ -180,12 +192,12 @@
 		  if(data.form.password.value != data.form.repass.value){
 			  //alert(data.form.pass.value);
 			  //alert(data.form.repass.value);
-			  layer.alert('两次输入的密码不一样！');
+			  layer.alert('两次输入的密码不一样！', {icon: 2});
 			  return false;
 		  }
 		  
 		  if(!data.form.agreement.checked){
-			  layer.alert('为了方便管理，请您勾选同意用户服务条款');
+			  layer.alert('为了方便管理，请您勾选同意用户服务条款', {icon: 7});
 			  return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
 		  }
 		  
@@ -226,8 +238,64 @@
 </script>
  
  
- 
- 
+ <script>
+    // 图片上传 js
+	layui.use('upload', function(){
+	  var upload = layui.upload;
+	   
+	  //执行实例
+	  var uploadInst = upload.render({
+	    elem: '#headUrlBtn'  // 绑定元素
+	    ,url: '/uploadImage' //上传接口
+	    
+    	, before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+    	    layer.load(); //上传loading
+    	}
+	  
+	    ,done: function(res, index, upload){
+	    	layer.closeAll('loading'); //关闭loading
+	    	
+	      //上传完毕回调
+	      //alert("上传完毕回调");
+	      
+	    	//alert(res);
+	    	//alert(res.code);
+	    	
+	      //var jsonobj=eval("("+res+")");
+	      
+	      //alert(jsonobj);
+	      
+	      if(res.code == 0){
+	          //do something （比如将res返回的图片链接保存到表单的隐藏域）
+	          //alert("上传成功");
+	    	  //alert("图片链接" + res.imageUrl);
+	    	  $('#headUrl').val(res.imageUrl);
+	    	  
+	    	  layer.alert('上传头像成功');
+	    	  
+	      }
+	      if(res.code == 1){
+	    	layer.alert('上传出错了，请刷新页面后再重新上传');
+	      	//alert("上传出错");
+	      }
+	      
+	      //alert($('#headUrl').val());
+	     
+	    }
+	    ,error: function(){
+	      //请求异常回调
+	      //alert("请求异常回调");
+	      layer.alert('上传异常了');
+	    }
+	    
+	    ,accept: 'images' //允许上传的文件类型
+	    ,size: 3000 //最大允许上传的文件大小,单位 KB
+	    
+	  });
+	});
+</script>
+
+
  
  
  

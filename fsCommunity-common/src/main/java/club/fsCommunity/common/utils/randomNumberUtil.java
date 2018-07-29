@@ -10,18 +10,30 @@ import club.fsCommunity.pojo.LoginTicket;
 
 public class randomNumberUtil {
 
+	/**
+	 * Java语言 根据当前时间  随机生成ID的方法
+	 * @return
+	 */
 	public static String getGuid(){
 		StringBuffer now = new StringBuffer(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
 		int n = (int)(Math.random() * 90000.0D + 10000.0D);
 		return now.append(n).toString();
 	}
 	
+	/**
+	 * Java语言 根据当前时间  随机生成ID的方法
+	 * @return
+	 */
 	public static String getZcbhid(){
 		StringBuffer now = new StringBuffer(new SimpleDateFormat("yyyyMMdd").format(new Date()));
 		int n = (int)(Math.random() * 9000.0D + 1000.0D);
 		return now.append(n).toString();
 	}
 	
+	/**
+	 * 得到UUID
+	 * @return
+	 */
 	public static String getUUID(){
 		return UUID.randomUUID().toString().replace("-", "");
 	}
@@ -32,6 +44,54 @@ public class randomNumberUtil {
 	 */
 	public static String generateUserID(){
 		return "user" + getUUID();
+	}
+	
+	/**
+	 * 生成赛事id
+	 * @return
+	 */
+	public static String generateGameID(){
+		return "game" + getUUID();
+	}
+	
+	/**
+	 * 生成 报名信息表 id
+	 * @return
+	 */
+	public static String generateEnrollID(){
+		return "enroll" + getUUID();
+	}
+	
+	/**
+	 * 生成站内信 id
+	 * @return
+	 */
+	public static String generateMessageID(){
+		return "mess" + getUUID();
+	}
+	
+	/**
+	 * 生成 队伍 id
+	 * @return
+	 */
+	public static String generateTeamID(){
+		return "team" + getUUID();
+	}
+	
+	/**
+	 * 生成 对阵情况 id
+	 * @return
+	 */
+	public static String generateTeamVsID(){
+		return "teamvs" + getUUID();
+	}
+	
+	/**
+	 * 生成 注册时的 邮箱激活码
+	 * @return
+	 */
+	public static String generateEmailActiveCode(){
+		return "ACT" + getUUID() + "EMAIL";
 	}
 	
 	/**
@@ -49,6 +109,14 @@ public class randomNumberUtil {
 	 */
 	public static String generateTicketStr(){
 		return "clubfsticket" + getUUID();
+	}
+	
+	/**
+	 * 生成 Codekeys ID
+	 * @return
+	 */
+	public static String generateCodekeysID(){
+		return "codekeys" + getUUID();
 	}
 	
 	/**

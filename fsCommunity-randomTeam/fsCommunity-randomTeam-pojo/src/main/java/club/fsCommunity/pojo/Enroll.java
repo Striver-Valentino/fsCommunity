@@ -1,11 +1,21 @@
 package club.fsCommunity.pojo;
 
+import java.util.Date;
+
 public class Enroll extends EnrollKey {
     private String position;
 
     private String rating;
 
     private Integer status;
+
+    private Date enrollDate;
+
+    private String signupGameName;
+
+    private String signupUserGameName;
+
+    private Integer abilityScore;
 
     private String descr;
 
@@ -31,6 +41,38 @@ public class Enroll extends EnrollKey {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Date getEnrollDate() {
+        return enrollDate;
+    }
+
+    public void setEnrollDate(Date enrollDate) {
+        this.enrollDate = enrollDate;
+    }
+
+    public String getSignupGameName() {
+        return signupGameName;
+    }
+
+    public void setSignupGameName(String signupGameName) {
+        this.signupGameName = signupGameName == null ? null : signupGameName.trim();
+    }
+
+    public String getSignupUserGameName() {
+        return signupUserGameName;
+    }
+
+    public void setSignupUserGameName(String signupUserGameName) {
+        this.signupUserGameName = signupUserGameName == null ? null : signupUserGameName.trim();
+    }
+
+    public Integer getAbilityScore() {
+        return abilityScore;
+    }
+
+    public void setAbilityScore(Integer abilityScore) {
+        this.abilityScore = abilityScore;
     }
 
     public String getDescr() {

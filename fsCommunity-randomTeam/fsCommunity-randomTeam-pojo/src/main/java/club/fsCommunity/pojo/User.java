@@ -1,5 +1,7 @@
 package club.fsCommunity.pojo;
 
+import java.util.Date;
+
 public class User {
     private String id;
 
@@ -16,6 +18,16 @@ public class User {
     private String salt;
 
     private String headUrl;
+
+    private Date createDate;
+
+    private String lastLoginIp;
+
+    private Date lastLoginDate;
+
+    private Date activeDate;
+
+    private String activeCode;
 
     public String getId() {
         return id;
@@ -81,11 +93,43 @@ public class User {
         this.headUrl = headUrl == null ? null : headUrl.trim();
     }
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password
-				+ ", gameName=" + gameName + ", email=" + email + ", status="
-				+ status + ", salt=" + salt + ", headUrl=" + headUrl + "]";
-	}
-    
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getLastLoginIp() {
+        return lastLoginIp;
+    }
+
+    public void setLastLoginIp(String lastLoginIp) {
+        this.lastLoginIp = lastLoginIp == null ? null : lastLoginIp.trim();
+    }
+
+    public Date getLastLoginDate() {
+        return lastLoginDate;
+    }
+
+    public void setLastLoginDate(Date lastLoginDate) {
+        this.lastLoginDate = lastLoginDate;
+    }
+
+    public Date getActiveDate() {
+        return activeDate;
+    }
+
+    public void setActiveDate(Date activeDate) {
+        this.activeDate = activeDate;
+    }
+
+    public String getActiveCode() {
+        return activeCode;
+    }
+
+    public void setActiveCode(String activeCode) {
+        this.activeCode = activeCode == null ? null : activeCode.trim();
+    }
 }

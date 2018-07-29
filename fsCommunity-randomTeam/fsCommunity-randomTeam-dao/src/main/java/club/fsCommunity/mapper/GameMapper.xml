@@ -8,8 +8,15 @@
     <result column="STATUS" property="status" jdbcType="INTEGER" />
     <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
     <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
-    <result column="organizer_id" property="organizerId" jdbcType="VARCHAR" />
+    <result column="launch_user_id" property="launchUserId" jdbcType="VARCHAR" />
     <result column="sponsor_name" property="sponsorName" jdbcType="VARCHAR" />
+    <result column="undertake_name" property="undertakeName" jdbcType="VARCHAR" />
+    <result column="support_name" property="supportName" jdbcType="VARCHAR" />
+    <result column="sign_up_line" property="signUpLine" jdbcType="TIMESTAMP" />
+    <result column="launch_date" property="launchDate" jdbcType="TIMESTAMP" />
+    <result column="edge" property="edge" jdbcType="VARCHAR" />
+    <result column="launch_user_name" property="launchUserName" jdbcType="VARCHAR" />
+    <result column="group_status" property="groupStatus" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="club.fsCommunity.pojo.Game" extends="BaseResultMap" >
     <result column="descr" property="descr" jdbcType="LONGVARCHAR" />
@@ -73,7 +80,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, NAME, apply_count, STATUS, start_date, end_date, organizer_id, sponsor_name
+    id, NAME, apply_count, STATUS, start_date, end_date, launch_user_id, sponsor_name, 
+    undertake_name, support_name, sign_up_line, launch_date, edge, launch_user_name, 
+    group_status
   </sql>
   <sql id="Blob_Column_List" >
     descr
@@ -129,12 +138,16 @@
   <insert id="insert" parameterType="club.fsCommunity.pojo.Game" >
     insert into game (id, NAME, apply_count, 
       STATUS, start_date, end_date, 
-      organizer_id, sponsor_name, descr
-      )
+      launch_user_id, sponsor_name, undertake_name, 
+      support_name, sign_up_line, launch_date, 
+      edge, launch_user_name, group_status, 
+      descr)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{applyCount,jdbcType=INTEGER}, 
       #{status,jdbcType=INTEGER}, #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, 
-      #{organizerId,jdbcType=VARCHAR}, #{sponsorName,jdbcType=VARCHAR}, #{descr,jdbcType=LONGVARCHAR}
-      )
+      #{launchUserId,jdbcType=VARCHAR}, #{sponsorName,jdbcType=VARCHAR}, #{undertakeName,jdbcType=VARCHAR}, 
+      #{supportName,jdbcType=VARCHAR}, #{signUpLine,jdbcType=TIMESTAMP}, #{launchDate,jdbcType=TIMESTAMP}, 
+      #{edge,jdbcType=VARCHAR}, #{launchUserName,jdbcType=VARCHAR}, #{groupStatus,jdbcType=INTEGER}, 
+      #{descr,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="club.fsCommunity.pojo.Game" >
     insert into game
@@ -157,11 +170,32 @@
       <if test="endDate != null" >
         end_date,
       </if>
-      <if test="organizerId != null" >
-        organizer_id,
+      <if test="launchUserId != null" >
+        launch_user_id,
       </if>
       <if test="sponsorName != null" >
         sponsor_name,
+      </if>
+      <if test="undertakeName != null" >
+        undertake_name,
+      </if>
+      <if test="supportName != null" >
+        support_name,
+      </if>
+      <if test="signUpLine != null" >
+        sign_up_line,
+      </if>
+      <if test="launchDate != null" >
+        launch_date,
+      </if>
+      <if test="edge != null" >
+        edge,
+      </if>
+      <if test="launchUserName != null" >
+        launch_user_name,
+      </if>
+      <if test="groupStatus != null" >
+        group_status,
       </if>
       <if test="descr != null" >
         descr,
@@ -186,11 +220,32 @@
       <if test="endDate != null" >
         #{endDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="organizerId != null" >
-        #{organizerId,jdbcType=VARCHAR},
+      <if test="launchUserId != null" >
+        #{launchUserId,jdbcType=VARCHAR},
       </if>
       <if test="sponsorName != null" >
         #{sponsorName,jdbcType=VARCHAR},
+      </if>
+      <if test="undertakeName != null" >
+        #{undertakeName,jdbcType=VARCHAR},
+      </if>
+      <if test="supportName != null" >
+        #{supportName,jdbcType=VARCHAR},
+      </if>
+      <if test="signUpLine != null" >
+        #{signUpLine,jdbcType=TIMESTAMP},
+      </if>
+      <if test="launchDate != null" >
+        #{launchDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edge != null" >
+        #{edge,jdbcType=VARCHAR},
+      </if>
+      <if test="launchUserName != null" >
+        #{launchUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupStatus != null" >
+        #{groupStatus,jdbcType=INTEGER},
       </if>
       <if test="descr != null" >
         #{descr,jdbcType=LONGVARCHAR},
@@ -224,11 +279,32 @@
       <if test="record.endDate != null" >
         end_date = #{record.endDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.organizerId != null" >
-        organizer_id = #{record.organizerId,jdbcType=VARCHAR},
+      <if test="record.launchUserId != null" >
+        launch_user_id = #{record.launchUserId,jdbcType=VARCHAR},
       </if>
       <if test="record.sponsorName != null" >
         sponsor_name = #{record.sponsorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.undertakeName != null" >
+        undertake_name = #{record.undertakeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.supportName != null" >
+        support_name = #{record.supportName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signUpLine != null" >
+        sign_up_line = #{record.signUpLine,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.launchDate != null" >
+        launch_date = #{record.launchDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.edge != null" >
+        edge = #{record.edge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.launchUserName != null" >
+        launch_user_name = #{record.launchUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupStatus != null" >
+        group_status = #{record.groupStatus,jdbcType=INTEGER},
       </if>
       <if test="record.descr != null" >
         descr = #{record.descr,jdbcType=LONGVARCHAR},
@@ -246,8 +322,15 @@
       STATUS = #{record.status,jdbcType=INTEGER},
       start_date = #{record.startDate,jdbcType=TIMESTAMP},
       end_date = #{record.endDate,jdbcType=TIMESTAMP},
-      organizer_id = #{record.organizerId,jdbcType=VARCHAR},
+      launch_user_id = #{record.launchUserId,jdbcType=VARCHAR},
       sponsor_name = #{record.sponsorName,jdbcType=VARCHAR},
+      undertake_name = #{record.undertakeName,jdbcType=VARCHAR},
+      support_name = #{record.supportName,jdbcType=VARCHAR},
+      sign_up_line = #{record.signUpLine,jdbcType=TIMESTAMP},
+      launch_date = #{record.launchDate,jdbcType=TIMESTAMP},
+      edge = #{record.edge,jdbcType=VARCHAR},
+      launch_user_name = #{record.launchUserName,jdbcType=VARCHAR},
+      group_status = #{record.groupStatus,jdbcType=INTEGER},
       descr = #{record.descr,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -261,8 +344,15 @@
       STATUS = #{record.status,jdbcType=INTEGER},
       start_date = #{record.startDate,jdbcType=TIMESTAMP},
       end_date = #{record.endDate,jdbcType=TIMESTAMP},
-      organizer_id = #{record.organizerId,jdbcType=VARCHAR},
-      sponsor_name = #{record.sponsorName,jdbcType=VARCHAR}
+      launch_user_id = #{record.launchUserId,jdbcType=VARCHAR},
+      sponsor_name = #{record.sponsorName,jdbcType=VARCHAR},
+      undertake_name = #{record.undertakeName,jdbcType=VARCHAR},
+      support_name = #{record.supportName,jdbcType=VARCHAR},
+      sign_up_line = #{record.signUpLine,jdbcType=TIMESTAMP},
+      launch_date = #{record.launchDate,jdbcType=TIMESTAMP},
+      edge = #{record.edge,jdbcType=VARCHAR},
+      launch_user_name = #{record.launchUserName,jdbcType=VARCHAR},
+      group_status = #{record.groupStatus,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -285,11 +375,32 @@
       <if test="endDate != null" >
         end_date = #{endDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="organizerId != null" >
-        organizer_id = #{organizerId,jdbcType=VARCHAR},
+      <if test="launchUserId != null" >
+        launch_user_id = #{launchUserId,jdbcType=VARCHAR},
       </if>
       <if test="sponsorName != null" >
         sponsor_name = #{sponsorName,jdbcType=VARCHAR},
+      </if>
+      <if test="undertakeName != null" >
+        undertake_name = #{undertakeName,jdbcType=VARCHAR},
+      </if>
+      <if test="supportName != null" >
+        support_name = #{supportName,jdbcType=VARCHAR},
+      </if>
+      <if test="signUpLine != null" >
+        sign_up_line = #{signUpLine,jdbcType=TIMESTAMP},
+      </if>
+      <if test="launchDate != null" >
+        launch_date = #{launchDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edge != null" >
+        edge = #{edge,jdbcType=VARCHAR},
+      </if>
+      <if test="launchUserName != null" >
+        launch_user_name = #{launchUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupStatus != null" >
+        group_status = #{groupStatus,jdbcType=INTEGER},
       </if>
       <if test="descr != null" >
         descr = #{descr,jdbcType=LONGVARCHAR},
@@ -304,8 +415,15 @@
       STATUS = #{status,jdbcType=INTEGER},
       start_date = #{startDate,jdbcType=TIMESTAMP},
       end_date = #{endDate,jdbcType=TIMESTAMP},
-      organizer_id = #{organizerId,jdbcType=VARCHAR},
+      launch_user_id = #{launchUserId,jdbcType=VARCHAR},
       sponsor_name = #{sponsorName,jdbcType=VARCHAR},
+      undertake_name = #{undertakeName,jdbcType=VARCHAR},
+      support_name = #{supportName,jdbcType=VARCHAR},
+      sign_up_line = #{signUpLine,jdbcType=TIMESTAMP},
+      launch_date = #{launchDate,jdbcType=TIMESTAMP},
+      edge = #{edge,jdbcType=VARCHAR},
+      launch_user_name = #{launchUserName,jdbcType=VARCHAR},
+      group_status = #{groupStatus,jdbcType=INTEGER},
       descr = #{descr,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -316,8 +434,15 @@
       STATUS = #{status,jdbcType=INTEGER},
       start_date = #{startDate,jdbcType=TIMESTAMP},
       end_date = #{endDate,jdbcType=TIMESTAMP},
-      organizer_id = #{organizerId,jdbcType=VARCHAR},
-      sponsor_name = #{sponsorName,jdbcType=VARCHAR}
+      launch_user_id = #{launchUserId,jdbcType=VARCHAR},
+      sponsor_name = #{sponsorName,jdbcType=VARCHAR},
+      undertake_name = #{undertakeName,jdbcType=VARCHAR},
+      support_name = #{supportName,jdbcType=VARCHAR},
+      sign_up_line = #{signUpLine,jdbcType=TIMESTAMP},
+      launch_date = #{launchDate,jdbcType=TIMESTAMP},
+      edge = #{edge,jdbcType=VARCHAR},
+      launch_user_name = #{launchUserName,jdbcType=VARCHAR},
+      group_status = #{groupStatus,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

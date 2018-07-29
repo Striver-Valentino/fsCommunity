@@ -48,7 +48,27 @@
 		  <version>1.27-SNAPSHOT</version>
 	</dependency>
 	
+	<!-- spring-webmvc -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+	</dependency>
+	
   </dependencies>
+  
+  
+  
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+                <testFailureIgnore>true</testFailureIgnore>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
   
   
   

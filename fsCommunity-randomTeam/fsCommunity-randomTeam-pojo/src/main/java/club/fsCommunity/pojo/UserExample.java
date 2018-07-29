@@ -1,6 +1,7 @@
 package club.fsCommunity.pojo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserExample {
@@ -651,6 +652,326 @@ public class UserExample {
 
         public Criteria andHeadUrlNotBetween(String value1, String value2) {
             addCriterion("head_url not between", value1, value2, "headUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateIsNull() {
+            addCriterion("create_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateIsNotNull() {
+            addCriterion("create_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateEqualTo(Date value) {
+            addCriterion("create_date =", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotEqualTo(Date value) {
+            addCriterion("create_date <>", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateGreaterThan(Date value) {
+            addCriterion("create_date >", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_date >=", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateLessThan(Date value) {
+            addCriterion("create_date <", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateLessThanOrEqualTo(Date value) {
+            addCriterion("create_date <=", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateIn(List<Date> values) {
+            addCriterion("create_date in", values, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotIn(List<Date> values) {
+            addCriterion("create_date not in", values, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateBetween(Date value1, Date value2) {
+            addCriterion("create_date between", value1, value2, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotBetween(Date value1, Date value2) {
+            addCriterion("create_date not between", value1, value2, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpIsNull() {
+            addCriterion("last_login_ip is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpIsNotNull() {
+            addCriterion("last_login_ip is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpEqualTo(String value) {
+            addCriterion("last_login_ip =", value, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpNotEqualTo(String value) {
+            addCriterion("last_login_ip <>", value, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpGreaterThan(String value) {
+            addCriterion("last_login_ip >", value, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpGreaterThanOrEqualTo(String value) {
+            addCriterion("last_login_ip >=", value, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpLessThan(String value) {
+            addCriterion("last_login_ip <", value, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpLessThanOrEqualTo(String value) {
+            addCriterion("last_login_ip <=", value, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpLike(String value) {
+            addCriterion("last_login_ip like", value, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpNotLike(String value) {
+            addCriterion("last_login_ip not like", value, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpIn(List<String> values) {
+            addCriterion("last_login_ip in", values, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpNotIn(List<String> values) {
+            addCriterion("last_login_ip not in", values, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpBetween(String value1, String value2) {
+            addCriterion("last_login_ip between", value1, value2, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginIpNotBetween(String value1, String value2) {
+            addCriterion("last_login_ip not between", value1, value2, "lastLoginIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateIsNull() {
+            addCriterion("last_login_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateIsNotNull() {
+            addCriterion("last_login_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateEqualTo(Date value) {
+            addCriterion("last_login_date =", value, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateNotEqualTo(Date value) {
+            addCriterion("last_login_date <>", value, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateGreaterThan(Date value) {
+            addCriterion("last_login_date >", value, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("last_login_date >=", value, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateLessThan(Date value) {
+            addCriterion("last_login_date <", value, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateLessThanOrEqualTo(Date value) {
+            addCriterion("last_login_date <=", value, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateIn(List<Date> values) {
+            addCriterion("last_login_date in", values, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateNotIn(List<Date> values) {
+            addCriterion("last_login_date not in", values, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateBetween(Date value1, Date value2) {
+            addCriterion("last_login_date between", value1, value2, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginDateNotBetween(Date value1, Date value2) {
+            addCriterion("last_login_date not between", value1, value2, "lastLoginDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateIsNull() {
+            addCriterion("active_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateIsNotNull() {
+            addCriterion("active_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateEqualTo(Date value) {
+            addCriterion("active_date =", value, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateNotEqualTo(Date value) {
+            addCriterion("active_date <>", value, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateGreaterThan(Date value) {
+            addCriterion("active_date >", value, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("active_date >=", value, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateLessThan(Date value) {
+            addCriterion("active_date <", value, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateLessThanOrEqualTo(Date value) {
+            addCriterion("active_date <=", value, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateIn(List<Date> values) {
+            addCriterion("active_date in", values, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateNotIn(List<Date> values) {
+            addCriterion("active_date not in", values, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateBetween(Date value1, Date value2) {
+            addCriterion("active_date between", value1, value2, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveDateNotBetween(Date value1, Date value2) {
+            addCriterion("active_date not between", value1, value2, "activeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeIsNull() {
+            addCriterion("active_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeIsNotNull() {
+            addCriterion("active_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeEqualTo(String value) {
+            addCriterion("active_code =", value, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeNotEqualTo(String value) {
+            addCriterion("active_code <>", value, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeGreaterThan(String value) {
+            addCriterion("active_code >", value, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("active_code >=", value, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeLessThan(String value) {
+            addCriterion("active_code <", value, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeLessThanOrEqualTo(String value) {
+            addCriterion("active_code <=", value, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeLike(String value) {
+            addCriterion("active_code like", value, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeNotLike(String value) {
+            addCriterion("active_code not like", value, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeIn(List<String> values) {
+            addCriterion("active_code in", values, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeNotIn(List<String> values) {
+            addCriterion("active_code not in", values, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeBetween(String value1, String value2) {
+            addCriterion("active_code between", value1, value2, "activeCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andActiveCodeNotBetween(String value1, String value2) {
+            addCriterion("active_code not between", value1, value2, "activeCode");
             return (Criteria) this;
         }
     }

@@ -10,5 +10,12 @@
 
 	<!-- 包扫描器，扫描带 @Service 注解的类 -->
 	<context:component-scan base-package="club.fsCommunity.service"></context:component-scan>
+	<context:component-scan base-package="club.fsCommunity.model"></context:component-scan>
+	<context:component-scan base-package="club.fsCommunity.interceptor"></context:component-scan>
+	<context:component-scan base-package="club.fsCommunity.interceptor.configuration"></context:component-scan>
+	<context:component-scan base-package="club.fsCommunity.async"></context:component-scan>
+	<context:component-scan base-package="club.fsCommunity.async.handler"></context:component-scan>
+	<context:component-scan base-package="club.fsCommunity.jedis"></context:component-scan>
+	<context:component-scan base-package="club.fsCommunity.email"></context:component-scan>
 	
 </beans>

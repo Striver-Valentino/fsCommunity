@@ -17,6 +17,12 @@ public class Team extends TeamKey {
 
     private Integer status;
 
+    private String member1GameName;
+
+    private String member2GameName;
+
+    private String member3GameName;
+
     private String descr;
 
     public String getName() {
@@ -81,6 +87,30 @@ public class Team extends TeamKey {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getMember1GameName() {
+        return member1GameName;
+    }
+
+    public void setMember1GameName(String member1GameName) {
+        this.member1GameName = member1GameName == null ? null : member1GameName.trim();
+    }
+
+    public String getMember2GameName() {
+        return member2GameName;
+    }
+
+    public void setMember2GameName(String member2GameName) {
+        this.member2GameName = member2GameName == null ? null : member2GameName.trim();
+    }
+
+    public String getMember3GameName() {
+        return member3GameName;
+    }
+
+    public void setMember3GameName(String member3GameName) {
+        this.member3GameName = member3GameName == null ? null : member3GameName.trim();
     }
 
     public String getDescr() {

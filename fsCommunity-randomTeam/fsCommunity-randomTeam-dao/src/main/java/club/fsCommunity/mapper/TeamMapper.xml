@@ -12,6 +12,9 @@
     <result column="opponent" property="opponent" jdbcType="VARCHAR" />
     <result column="VSResult" property="vsresult" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="member1_game_name" property="member1GameName" jdbcType="VARCHAR" />
+    <result column="member2_game_name" property="member2GameName" jdbcType="VARCHAR" />
+    <result column="member3_game_name" property="member3GameName" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="club.fsCommunity.pojo.Team" extends="BaseResultMap" >
     <result column="descr" property="descr" jdbcType="LONGVARCHAR" />
@@ -75,7 +78,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    team_id, game_id, NAME, member1, member2, member3, lineup, opponent, VSResult, status
+    team_id, game_id, NAME, member1, member2, member3, lineup, opponent, VSResult, status, 
+    member1_game_name, member2_game_name, member3_game_name
   </sql>
   <sql id="Blob_Column_List" >
     descr
@@ -134,11 +138,13 @@
     insert into team (team_id, game_id, NAME, 
       member1, member2, member3, 
       lineup, opponent, VSResult, 
-      status, descr)
+      status, member1_game_name, member2_game_name, 
+      member3_game_name, descr)
     values (#{teamId,jdbcType=VARCHAR}, #{gameId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{member1,jdbcType=VARCHAR}, #{member2,jdbcType=VARCHAR}, #{member3,jdbcType=VARCHAR}, 
       #{lineup,jdbcType=VARCHAR}, #{opponent,jdbcType=VARCHAR}, #{vsresult,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER}, #{descr,jdbcType=LONGVARCHAR})
+      #{status,jdbcType=INTEGER}, #{member1GameName,jdbcType=VARCHAR}, #{member2GameName,jdbcType=VARCHAR}, 
+      #{member3GameName,jdbcType=VARCHAR}, #{descr,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="club.fsCommunity.pojo.Team" >
     insert into team
@@ -172,6 +178,15 @@
       </if>
       <if test="status != null" >
         status,
+      </if>
+      <if test="member1GameName != null" >
+        member1_game_name,
+      </if>
+      <if test="member2GameName != null" >
+        member2_game_name,
+      </if>
+      <if test="member3GameName != null" >
+        member3_game_name,
       </if>
       <if test="descr != null" >
         descr,
@@ -207,6 +222,15 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
+      </if>
+      <if test="member1GameName != null" >
+        #{member1GameName,jdbcType=VARCHAR},
+      </if>
+      <if test="member2GameName != null" >
+        #{member2GameName,jdbcType=VARCHAR},
+      </if>
+      <if test="member3GameName != null" >
+        #{member3GameName,jdbcType=VARCHAR},
       </if>
       <if test="descr != null" >
         #{descr,jdbcType=LONGVARCHAR},
@@ -252,6 +276,15 @@
       <if test="record.status != null" >
         status = #{record.status,jdbcType=INTEGER},
       </if>
+      <if test="record.member1GameName != null" >
+        member1_game_name = #{record.member1GameName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member2GameName != null" >
+        member2_game_name = #{record.member2GameName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member3GameName != null" >
+        member3_game_name = #{record.member3GameName,jdbcType=VARCHAR},
+      </if>
       <if test="record.descr != null" >
         descr = #{record.descr,jdbcType=LONGVARCHAR},
       </if>
@@ -272,6 +305,9 @@
       opponent = #{record.opponent,jdbcType=VARCHAR},
       VSResult = #{record.vsresult,jdbcType=INTEGER},
       status = #{record.status,jdbcType=INTEGER},
+      member1_game_name = #{record.member1GameName,jdbcType=VARCHAR},
+      member2_game_name = #{record.member2GameName,jdbcType=VARCHAR},
+      member3_game_name = #{record.member3GameName,jdbcType=VARCHAR},
       descr = #{record.descr,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -288,7 +324,10 @@
       lineup = #{record.lineup,jdbcType=VARCHAR},
       opponent = #{record.opponent,jdbcType=VARCHAR},
       VSResult = #{record.vsresult,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=INTEGER}
+      status = #{record.status,jdbcType=INTEGER},
+      member1_game_name = #{record.member1GameName,jdbcType=VARCHAR},
+      member2_game_name = #{record.member2GameName,jdbcType=VARCHAR},
+      member3_game_name = #{record.member3GameName,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -320,6 +359,15 @@
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
       </if>
+      <if test="member1GameName != null" >
+        member1_game_name = #{member1GameName,jdbcType=VARCHAR},
+      </if>
+      <if test="member2GameName != null" >
+        member2_game_name = #{member2GameName,jdbcType=VARCHAR},
+      </if>
+      <if test="member3GameName != null" >
+        member3_game_name = #{member3GameName,jdbcType=VARCHAR},
+      </if>
       <if test="descr != null" >
         descr = #{descr,jdbcType=LONGVARCHAR},
       </if>
@@ -337,6 +385,9 @@
       opponent = #{opponent,jdbcType=VARCHAR},
       VSResult = #{vsresult,jdbcType=INTEGER},
       status = #{status,jdbcType=INTEGER},
+      member1_game_name = #{member1GameName,jdbcType=VARCHAR},
+      member2_game_name = #{member2GameName,jdbcType=VARCHAR},
+      member3_game_name = #{member3GameName,jdbcType=VARCHAR},
       descr = #{descr,jdbcType=LONGVARCHAR}
     where team_id = #{teamId,jdbcType=VARCHAR}
       and game_id = #{gameId,jdbcType=VARCHAR}
@@ -350,7 +401,10 @@
       lineup = #{lineup,jdbcType=VARCHAR},
       opponent = #{opponent,jdbcType=VARCHAR},
       VSResult = #{vsresult,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER},
+      member1_game_name = #{member1GameName,jdbcType=VARCHAR},
+      member2_game_name = #{member2GameName,jdbcType=VARCHAR},
+      member3_game_name = #{member3GameName,jdbcType=VARCHAR}
     where team_id = #{teamId,jdbcType=VARCHAR}
       and game_id = #{gameId,jdbcType=VARCHAR}
   </update>

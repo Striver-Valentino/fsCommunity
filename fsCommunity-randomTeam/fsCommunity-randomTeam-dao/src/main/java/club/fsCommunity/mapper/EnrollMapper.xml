@@ -8,6 +8,10 @@
     <result column="POSITION" property="position" jdbcType="VARCHAR" />
     <result column="rating" property="rating" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="enroll_date" property="enrollDate" jdbcType="TIMESTAMP" />
+    <result column="signup_game_name" property="signupGameName" jdbcType="VARCHAR" />
+    <result column="signup_user_game_name" property="signupUserGameName" jdbcType="VARCHAR" />
+    <result column="ability_score" property="abilityScore" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="club.fsCommunity.pojo.Enroll" extends="BaseResultMap" >
     <result column="descr" property="descr" jdbcType="LONGVARCHAR" />
@@ -71,7 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    enroll_id, game_id, user_id, POSITION, rating, status
+    enroll_id, game_id, user_id, POSITION, rating, status, enroll_date, signup_game_name, 
+    signup_user_game_name, ability_score
   </sql>
   <sql id="Blob_Column_List" >
     descr
@@ -131,10 +136,12 @@
   <insert id="insert" parameterType="club.fsCommunity.pojo.Enroll" >
     insert into enroll (enroll_id, game_id, user_id, 
       POSITION, rating, status, 
-      descr)
+      enroll_date, signup_game_name, signup_user_game_name, 
+      ability_score, descr)
     values (#{enrollId,jdbcType=VARCHAR}, #{gameId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
       #{position,jdbcType=VARCHAR}, #{rating,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{descr,jdbcType=LONGVARCHAR})
+      #{enrollDate,jdbcType=TIMESTAMP}, #{signupGameName,jdbcType=VARCHAR}, #{signupUserGameName,jdbcType=VARCHAR}, 
+      #{abilityScore,jdbcType=INTEGER}, #{descr,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="club.fsCommunity.pojo.Enroll" >
     insert into enroll
@@ -156,6 +163,18 @@
       </if>
       <if test="status != null" >
         status,
+      </if>
+      <if test="enrollDate != null" >
+        enroll_date,
+      </if>
+      <if test="signupGameName != null" >
+        signup_game_name,
+      </if>
+      <if test="signupUserGameName != null" >
+        signup_user_game_name,
+      </if>
+      <if test="abilityScore != null" >
+        ability_score,
       </if>
       <if test="descr != null" >
         descr,
@@ -179,6 +198,18 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
+      </if>
+      <if test="enrollDate != null" >
+        #{enrollDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signupGameName != null" >
+        #{signupGameName,jdbcType=VARCHAR},
+      </if>
+      <if test="signupUserGameName != null" >
+        #{signupUserGameName,jdbcType=VARCHAR},
+      </if>
+      <if test="abilityScore != null" >
+        #{abilityScore,jdbcType=INTEGER},
       </if>
       <if test="descr != null" >
         #{descr,jdbcType=LONGVARCHAR},
@@ -212,6 +243,18 @@
       <if test="record.status != null" >
         status = #{record.status,jdbcType=INTEGER},
       </if>
+      <if test="record.enrollDate != null" >
+        enroll_date = #{record.enrollDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signupGameName != null" >
+        signup_game_name = #{record.signupGameName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signupUserGameName != null" >
+        signup_user_game_name = #{record.signupUserGameName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abilityScore != null" >
+        ability_score = #{record.abilityScore,jdbcType=INTEGER},
+      </if>
       <if test="record.descr != null" >
         descr = #{record.descr,jdbcType=LONGVARCHAR},
       </if>
@@ -228,6 +271,10 @@
       POSITION = #{record.position,jdbcType=VARCHAR},
       rating = #{record.rating,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=INTEGER},
+      enroll_date = #{record.enrollDate,jdbcType=TIMESTAMP},
+      signup_game_name = #{record.signupGameName,jdbcType=VARCHAR},
+      signup_user_game_name = #{record.signupUserGameName,jdbcType=VARCHAR},
+      ability_score = #{record.abilityScore,jdbcType=INTEGER},
       descr = #{record.descr,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -240,7 +287,11 @@
       user_id = #{record.userId,jdbcType=VARCHAR},
       POSITION = #{record.position,jdbcType=VARCHAR},
       rating = #{record.rating,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER}
+      status = #{record.status,jdbcType=INTEGER},
+      enroll_date = #{record.enrollDate,jdbcType=TIMESTAMP},
+      signup_game_name = #{record.signupGameName,jdbcType=VARCHAR},
+      signup_user_game_name = #{record.signupUserGameName,jdbcType=VARCHAR},
+      ability_score = #{record.abilityScore,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -257,6 +308,18 @@
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
       </if>
+      <if test="enrollDate != null" >
+        enroll_date = #{enrollDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signupGameName != null" >
+        signup_game_name = #{signupGameName,jdbcType=VARCHAR},
+      </if>
+      <if test="signupUserGameName != null" >
+        signup_user_game_name = #{signupUserGameName,jdbcType=VARCHAR},
+      </if>
+      <if test="abilityScore != null" >
+        ability_score = #{abilityScore,jdbcType=INTEGER},
+      </if>
       <if test="descr != null" >
         descr = #{descr,jdbcType=LONGVARCHAR},
       </if>
@@ -270,6 +333,10 @@
     set POSITION = #{position,jdbcType=VARCHAR},
       rating = #{rating,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
+      enroll_date = #{enrollDate,jdbcType=TIMESTAMP},
+      signup_game_name = #{signupGameName,jdbcType=VARCHAR},
+      signup_user_game_name = #{signupUserGameName,jdbcType=VARCHAR},
+      ability_score = #{abilityScore,jdbcType=INTEGER},
       descr = #{descr,jdbcType=LONGVARCHAR}
     where enroll_id = #{enrollId,jdbcType=VARCHAR}
       and game_id = #{gameId,jdbcType=VARCHAR}
@@ -279,7 +346,11 @@
     update enroll
     set POSITION = #{position,jdbcType=VARCHAR},
       rating = #{rating,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER},
+      enroll_date = #{enrollDate,jdbcType=TIMESTAMP},
+      signup_game_name = #{signupGameName,jdbcType=VARCHAR},
+      signup_user_game_name = #{signupUserGameName,jdbcType=VARCHAR},
+      ability_score = #{abilityScore,jdbcType=INTEGER}
     where enroll_id = #{enrollId,jdbcType=VARCHAR}
       and game_id = #{gameId,jdbcType=VARCHAR}
       and user_id = #{userId,jdbcType=VARCHAR}

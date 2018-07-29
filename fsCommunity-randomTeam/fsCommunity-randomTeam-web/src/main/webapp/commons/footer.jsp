@@ -19,11 +19,14 @@
 
 
 <div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
+  <p><a href="http://fly.layui.com/" target="_blank">fs社区</a> 2018 &copy; <a href="#" target="_blank">德克黑影团队 出品</a></p>
   <p>
-    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
-    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
+  	友情链接：
+    <a href="http://www.fsjoy.com/" target="_blank">fs官网</a>
+    <a href="https://tieba.baidu.com/f?kw=%BD%D6%CD%B7%C0%BA%C7%F2&fr=ala0&tpl=5" target="_blank">fs贴吧</a>
+    <!-- 
     <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+     -->
   </p>
 </div>
 

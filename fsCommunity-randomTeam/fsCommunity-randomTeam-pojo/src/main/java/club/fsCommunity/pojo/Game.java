@@ -15,9 +15,23 @@ public class Game {
 
     private Date endDate;
 
-    private String organizerId;
+    private String launchUserId;
 
     private String sponsorName;
+
+    private String undertakeName;
+
+    private String supportName;
+
+    private Date signUpLine;
+
+    private Date launchDate;
+
+    private String edge;
+
+    private String launchUserName;
+
+    private Integer groupStatus;
 
     private String descr;
 
@@ -69,12 +83,12 @@ public class Game {
         this.endDate = endDate;
     }
 
-    public String getOrganizerId() {
-        return organizerId;
+    public String getLaunchUserId() {
+        return launchUserId;
     }
 
-    public void setOrganizerId(String organizerId) {
-        this.organizerId = organizerId == null ? null : organizerId.trim();
+    public void setLaunchUserId(String launchUserId) {
+        this.launchUserId = launchUserId == null ? null : launchUserId.trim();
     }
 
     public String getSponsorName() {
@@ -83,6 +97,62 @@ public class Game {
 
     public void setSponsorName(String sponsorName) {
         this.sponsorName = sponsorName == null ? null : sponsorName.trim();
+    }
+
+    public String getUndertakeName() {
+        return undertakeName;
+    }
+
+    public void setUndertakeName(String undertakeName) {
+        this.undertakeName = undertakeName == null ? null : undertakeName.trim();
+    }
+
+    public String getSupportName() {
+        return supportName;
+    }
+
+    public void setSupportName(String supportName) {
+        this.supportName = supportName == null ? null : supportName.trim();
+    }
+
+    public Date getSignUpLine() {
+        return signUpLine;
+    }
+
+    public void setSignUpLine(Date signUpLine) {
+        this.signUpLine = signUpLine;
+    }
+
+    public Date getLaunchDate() {
+        return launchDate;
+    }
+
+    public void setLaunchDate(Date launchDate) {
+        this.launchDate = launchDate;
+    }
+
+    public String getEdge() {
+        return edge;
+    }
+
+    public void setEdge(String edge) {
+        this.edge = edge == null ? null : edge.trim();
+    }
+
+    public String getLaunchUserName() {
+        return launchUserName;
+    }
+
+    public void setLaunchUserName(String launchUserName) {
+        this.launchUserName = launchUserName == null ? null : launchUserName.trim();
+    }
+
+    public Integer getGroupStatus() {
+        return groupStatus;
+    }
+
+    public void setGroupStatus(Integer groupStatus) {
+        this.groupStatus = groupStatus;
     }
 
     public String getDescr() {

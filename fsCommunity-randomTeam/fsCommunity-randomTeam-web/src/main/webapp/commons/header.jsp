@@ -17,11 +17,11 @@
 <div class="fly-header layui-bg-black">
 		<div class="layui-container">
 
-			<!--
+			
 				<a class="fly-logo" href="/">
-					<img src="../res/images/logo.png" alt="layui">
+					<img src="http://pbjixg82v.bkt.clouddn.com/fs%E7%A4%BE%E5%8C%BAlogo.jpg" alt="layui">
 				</a>
-				-->
+				
 			<ul class="layui-nav fly-nav layui-hide-xs">
 				<li class="layui-nav-item layui-this"><a href="/">
 						<i class="layui-icon">&#xe613;</i>赛事组队</a></li>
@@ -34,38 +34,49 @@
 			<ul class="layui-nav fly-nav-user">
 			
 				<c:choose>
-			    	<c:when test="${!empty sessionScope.loginUser }">
+			    	<c:when test="${!empty requestScope.userHost }"> <!-- ${!empty sessionScope.loginUser } -->
 			    	  <!-- 登入后的状态 -->
 				      <li class="layui-nav-item">
 				        <a class="fly-nav-avatar" href="javascript:;">
-				          <cite class="layui-hide-xs">${sessionScope.loginUser.gameName }</cite>
+				          <cite class="layui-hide-xs">${requestScope.userHost.gameName }</cite>
+				          <!-- 
+				          <cite class="layui-hide-xs">${sessionScope.loginUser.gameName } - ${requestScope.userHost.gameName }</cite>
+				           -->
 				          <!-- 
 				          <i class="iconfont icon-renzheng layui-hide-xs" title="认证信息：layui 作者"></i>
 				          <i class="layui-badge fly-badge-vip layui-hide-xs">VIP3</i>
 				           -->
-				          <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
+				          <!-- <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"> -->
+				          <img src="${requestScope.userHost.headUrl }?imageView2/1/w/100/h/100/">
 				        </a>
-				        <!-- 
-				        <dl class="layui-nav-child">
-				          <dd><a href="user/set.html"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
-				          <dd><a href="user/message.html"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a></dd>
-				          <dd><a href="user/home.html"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
-				          <hr style="margin: 5px 0;">
-				          <dd><a href="/user/logout/" style="text-align: center;">退出</a></dd>
-				        </dl>
-				         -->
+				        <!--  -->
+				        <li class="layui-nav-item">
+					      	<a href="javascript:void(0)" style="text-align: right;"><i class="layui-icon">&#xe61a;</i></a>
+					    	
+					    	<dl class="layui-nav-child">
+					    	 
+					    	  <dd><a href="${pageContext.request.contextPath }/user/initUserIndex"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe62d;</i>我的赛事</a></dd>
+					          <dd><a href="${pageContext.request.contextPath }/user/initUserSet"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
+					          
+					          <dd><a href="${pageContext.request.contextPath }/initMessagePage"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a></dd>
+					          
+					          <!-- <dd><a href="javascript:void(0)"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>个人中心</a></dd> -->
+					          
+					          <hr style="margin: 5px 0;">
+					          <dd><a href="/logout" style="text-align: center;">退出</a></dd>
+					        </dl>
+					    </li>
+				        
 				        
 				      </li>
 				      
-				      <li class="layui-nav-item">
-				      	<a href="/logout/" style="text-align: right;">退出</a>
-				      </li>
+				      
 			    		
 			    	</c:when>
 			    	<c:otherwise>
 			    		<!-- 未登入的状态 -->
 						<li class="layui-nav-item"><a
-							class="iconfont icon-touxiang layui-hide-xs" href="user/login.html"></a>
+							class="iconfont icon-touxiang layui-hide-xs" href="/initlogin"></a>
 						</li>
 						<li class="layui-nav-item"><a href="/initlogin">登入</a></li>
 						<li class="layui-nav-item"><a href="/initreg">注册</a></li>
@@ -94,10 +105,34 @@
 
 
 
+	<!-- 如果是未登陆用户，弹框 提示 登陆 -->
+	<c:choose>
+		<%-- 先判断是否已经登陆 --%>
+    	<c:when test="${empty requestScope.userHost }">
+    		<%-- 如果没有登陆，设置一个标记 --%>
+    		<input id="loginis" type="hidden" value="no" />
+    	</c:when>
+    	<c:otherwise>
+    		<%-- 如果登陆了，就什么都不做 --%>
+    		
+    	</c:otherwise>
+    </c:choose>
 
 
 
-
+	<script>
+		layui.use('layer', function(){
+		  var layer = layui.layer;
+		  
+			var loginis = $('#loginis').val();
+			if(loginis != null && loginis != "" && loginis == "no"){
+				
+				layer.alert("请先登陆或注册");
+				var loginis = "";
+			}
+		});  
+	
+	</script>
 
 
 

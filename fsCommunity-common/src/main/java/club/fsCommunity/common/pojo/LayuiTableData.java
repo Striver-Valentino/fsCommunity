@@ -35,4 +35,10 @@ public class LayuiTableData {
 		this.data = data;
 	}
 	
+	@Override
+	public String toString() {
+		return "LayuiTableData [code=" + code + ", msg=" + msg + ", count="
+				+ count + ", data=" + data + "]";
+	}
+	
 }

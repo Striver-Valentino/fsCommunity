@@ -1,6 +1,7 @@
 package club.fsCommunity.pojo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class EnrollExample {
@@ -511,6 +512,266 @@ public class EnrollExample {
 
         public Criteria andStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("status not between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateIsNull() {
+            addCriterion("enroll_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateIsNotNull() {
+            addCriterion("enroll_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateEqualTo(Date value) {
+            addCriterion("enroll_date =", value, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateNotEqualTo(Date value) {
+            addCriterion("enroll_date <>", value, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateGreaterThan(Date value) {
+            addCriterion("enroll_date >", value, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("enroll_date >=", value, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateLessThan(Date value) {
+            addCriterion("enroll_date <", value, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateLessThanOrEqualTo(Date value) {
+            addCriterion("enroll_date <=", value, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateIn(List<Date> values) {
+            addCriterion("enroll_date in", values, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateNotIn(List<Date> values) {
+            addCriterion("enroll_date not in", values, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateBetween(Date value1, Date value2) {
+            addCriterion("enroll_date between", value1, value2, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollDateNotBetween(Date value1, Date value2) {
+            addCriterion("enroll_date not between", value1, value2, "enrollDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameIsNull() {
+            addCriterion("signup_game_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameIsNotNull() {
+            addCriterion("signup_game_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameEqualTo(String value) {
+            addCriterion("signup_game_name =", value, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameNotEqualTo(String value) {
+            addCriterion("signup_game_name <>", value, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameGreaterThan(String value) {
+            addCriterion("signup_game_name >", value, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameGreaterThanOrEqualTo(String value) {
+            addCriterion("signup_game_name >=", value, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameLessThan(String value) {
+            addCriterion("signup_game_name <", value, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameLessThanOrEqualTo(String value) {
+            addCriterion("signup_game_name <=", value, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameLike(String value) {
+            addCriterion("signup_game_name like", value, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameNotLike(String value) {
+            addCriterion("signup_game_name not like", value, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameIn(List<String> values) {
+            addCriterion("signup_game_name in", values, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameNotIn(List<String> values) {
+            addCriterion("signup_game_name not in", values, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameBetween(String value1, String value2) {
+            addCriterion("signup_game_name between", value1, value2, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupGameNameNotBetween(String value1, String value2) {
+            addCriterion("signup_game_name not between", value1, value2, "signupGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameIsNull() {
+            addCriterion("signup_user_game_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameIsNotNull() {
+            addCriterion("signup_user_game_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameEqualTo(String value) {
+            addCriterion("signup_user_game_name =", value, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameNotEqualTo(String value) {
+            addCriterion("signup_user_game_name <>", value, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameGreaterThan(String value) {
+            addCriterion("signup_user_game_name >", value, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameGreaterThanOrEqualTo(String value) {
+            addCriterion("signup_user_game_name >=", value, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameLessThan(String value) {
+            addCriterion("signup_user_game_name <", value, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameLessThanOrEqualTo(String value) {
+            addCriterion("signup_user_game_name <=", value, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameLike(String value) {
+            addCriterion("signup_user_game_name like", value, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameNotLike(String value) {
+            addCriterion("signup_user_game_name not like", value, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameIn(List<String> values) {
+            addCriterion("signup_user_game_name in", values, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameNotIn(List<String> values) {
+            addCriterion("signup_user_game_name not in", values, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameBetween(String value1, String value2) {
+            addCriterion("signup_user_game_name between", value1, value2, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignupUserGameNameNotBetween(String value1, String value2) {
+            addCriterion("signup_user_game_name not between", value1, value2, "signupUserGameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreIsNull() {
+            addCriterion("ability_score is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreIsNotNull() {
+            addCriterion("ability_score is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreEqualTo(Integer value) {
+            addCriterion("ability_score =", value, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreNotEqualTo(Integer value) {
+            addCriterion("ability_score <>", value, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreGreaterThan(Integer value) {
+            addCriterion("ability_score >", value, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ability_score >=", value, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreLessThan(Integer value) {
+            addCriterion("ability_score <", value, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreLessThanOrEqualTo(Integer value) {
+            addCriterion("ability_score <=", value, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreIn(List<Integer> values) {
+            addCriterion("ability_score in", values, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreNotIn(List<Integer> values) {
+            addCriterion("ability_score not in", values, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreBetween(Integer value1, Integer value2) {
+            addCriterion("ability_score between", value1, value2, "abilityScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andAbilityScoreNotBetween(Integer value1, Integer value2) {
+            addCriterion("ability_score not between", value1, value2, "abilityScore");
             return (Criteria) this;
         }
     }

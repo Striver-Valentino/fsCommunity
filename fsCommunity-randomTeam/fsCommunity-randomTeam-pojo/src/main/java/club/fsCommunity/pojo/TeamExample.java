@@ -783,6 +783,216 @@ public class TeamExample {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
+
+        public Criteria andMember1GameNameIsNull() {
+            addCriterion("member1_game_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameIsNotNull() {
+            addCriterion("member1_game_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameEqualTo(String value) {
+            addCriterion("member1_game_name =", value, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameNotEqualTo(String value) {
+            addCriterion("member1_game_name <>", value, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameGreaterThan(String value) {
+            addCriterion("member1_game_name >", value, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameGreaterThanOrEqualTo(String value) {
+            addCriterion("member1_game_name >=", value, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameLessThan(String value) {
+            addCriterion("member1_game_name <", value, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameLessThanOrEqualTo(String value) {
+            addCriterion("member1_game_name <=", value, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameLike(String value) {
+            addCriterion("member1_game_name like", value, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameNotLike(String value) {
+            addCriterion("member1_game_name not like", value, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameIn(List<String> values) {
+            addCriterion("member1_game_name in", values, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameNotIn(List<String> values) {
+            addCriterion("member1_game_name not in", values, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameBetween(String value1, String value2) {
+            addCriterion("member1_game_name between", value1, value2, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember1GameNameNotBetween(String value1, String value2) {
+            addCriterion("member1_game_name not between", value1, value2, "member1GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameIsNull() {
+            addCriterion("member2_game_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameIsNotNull() {
+            addCriterion("member2_game_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameEqualTo(String value) {
+            addCriterion("member2_game_name =", value, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameNotEqualTo(String value) {
+            addCriterion("member2_game_name <>", value, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameGreaterThan(String value) {
+            addCriterion("member2_game_name >", value, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameGreaterThanOrEqualTo(String value) {
+            addCriterion("member2_game_name >=", value, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameLessThan(String value) {
+            addCriterion("member2_game_name <", value, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameLessThanOrEqualTo(String value) {
+            addCriterion("member2_game_name <=", value, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameLike(String value) {
+            addCriterion("member2_game_name like", value, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameNotLike(String value) {
+            addCriterion("member2_game_name not like", value, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameIn(List<String> values) {
+            addCriterion("member2_game_name in", values, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameNotIn(List<String> values) {
+            addCriterion("member2_game_name not in", values, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameBetween(String value1, String value2) {
+            addCriterion("member2_game_name between", value1, value2, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember2GameNameNotBetween(String value1, String value2) {
+            addCriterion("member2_game_name not between", value1, value2, "member2GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameIsNull() {
+            addCriterion("member3_game_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameIsNotNull() {
+            addCriterion("member3_game_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameEqualTo(String value) {
+            addCriterion("member3_game_name =", value, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameNotEqualTo(String value) {
+            addCriterion("member3_game_name <>", value, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameGreaterThan(String value) {
+            addCriterion("member3_game_name >", value, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameGreaterThanOrEqualTo(String value) {
+            addCriterion("member3_game_name >=", value, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameLessThan(String value) {
+            addCriterion("member3_game_name <", value, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameLessThanOrEqualTo(String value) {
+            addCriterion("member3_game_name <=", value, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameLike(String value) {
+            addCriterion("member3_game_name like", value, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameNotLike(String value) {
+            addCriterion("member3_game_name not like", value, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameIn(List<String> values) {
+            addCriterion("member3_game_name in", values, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameNotIn(List<String> values) {
+            addCriterion("member3_game_name not in", values, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameBetween(String value1, String value2) {
+            addCriterion("member3_game_name between", value1, value2, "member3GameName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMember3GameNameNotBetween(String value1, String value2) {
+            addCriterion("member3_game_name not between", value1, value2, "member3GameName");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

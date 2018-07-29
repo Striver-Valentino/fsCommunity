@@ -10,6 +10,11 @@
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="salt" property="salt" jdbcType="VARCHAR" />
     <result column="head_url" property="headUrl" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="last_login_ip" property="lastLoginIp" jdbcType="VARCHAR" />
+    <result column="last_login_date" property="lastLoginDate" jdbcType="TIMESTAMP" />
+    <result column="active_date" property="activeDate" jdbcType="TIMESTAMP" />
+    <result column="active_code" property="activeCode" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, NAME, PASSWORD, game_name, email, status, salt, head_url
+    id, NAME, PASSWORD, game_name, email, status, salt, head_url, create_date, last_login_ip, 
+    last_login_date, active_date, active_code
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="club.fsCommunity.pojo.UserExample" >
     select
@@ -105,10 +111,14 @@
   <insert id="insert" parameterType="club.fsCommunity.pojo.User" >
     insert into user (id, NAME, PASSWORD, 
       game_name, email, status, 
-      salt, head_url)
+      salt, head_url, create_date, 
+      last_login_ip, last_login_date, active_date, 
+      active_code)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{gameName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{salt,jdbcType=VARCHAR}, #{headUrl,jdbcType=VARCHAR})
+      #{salt,jdbcType=VARCHAR}, #{headUrl,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginDate,jdbcType=TIMESTAMP}, #{activeDate,jdbcType=TIMESTAMP}, 
+      #{activeCode,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="club.fsCommunity.pojo.User" >
     insert into user
@@ -137,6 +147,21 @@
       <if test="headUrl != null" >
         head_url,
       </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip,
+      </if>
+      <if test="lastLoginDate != null" >
+        last_login_date,
+      </if>
+      <if test="activeDate != null" >
+        active_date,
+      </if>
+      <if test="activeCode != null" >
+        active_code,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -162,6 +187,21 @@
       </if>
       <if test="headUrl != null" >
         #{headUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null" >
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginDate != null" >
+        #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activeDate != null" >
+        #{activeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activeCode != null" >
+        #{activeCode,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -198,6 +238,21 @@
       <if test="record.headUrl != null" >
         head_url = #{record.headUrl,jdbcType=VARCHAR},
       </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastLoginIp != null" >
+        last_login_ip = #{record.lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastLoginDate != null" >
+        last_login_date = #{record.lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.activeDate != null" >
+        active_date = #{record.activeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.activeCode != null" >
+        active_code = #{record.activeCode,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,7 +267,12 @@
       email = #{record.email,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=INTEGER},
       salt = #{record.salt,jdbcType=VARCHAR},
-      head_url = #{record.headUrl,jdbcType=VARCHAR}
+      head_url = #{record.headUrl,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      last_login_ip = #{record.lastLoginIp,jdbcType=VARCHAR},
+      last_login_date = #{record.lastLoginDate,jdbcType=TIMESTAMP},
+      active_date = #{record.activeDate,jdbcType=TIMESTAMP},
+      active_code = #{record.activeCode,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,6 +301,21 @@
       <if test="headUrl != null" >
         head_url = #{headUrl,jdbcType=VARCHAR},
       </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginDate != null" >
+        last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activeDate != null" >
+        active_date = #{activeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activeCode != null" >
+        active_code = #{activeCode,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -252,7 +327,12 @@
       email = #{email,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       salt = #{salt,jdbcType=VARCHAR},
-      head_url = #{headUrl,jdbcType=VARCHAR}
+      head_url = #{headUrl,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP},
+      active_date = #{activeDate,jdbcType=TIMESTAMP},
+      active_code = #{activeCode,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

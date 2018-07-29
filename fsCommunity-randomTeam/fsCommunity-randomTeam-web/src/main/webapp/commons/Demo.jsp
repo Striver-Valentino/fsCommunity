@@ -15,7 +15,7 @@
 
 <jsp:include page="/commons/header.jsp"></jsp:include>
 
-
+<jsp:include page="/commons/GamePartMenu.jsp"></jsp:include>
 
 
 

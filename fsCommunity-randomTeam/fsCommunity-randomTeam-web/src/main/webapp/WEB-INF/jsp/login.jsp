@@ -76,7 +76,7 @@
               <div class="layui-form-item">
                 <button class="layui-btn" lay-filter="login" lay-submit>立即登录</button>
                 <span style="padding-left:20px;">
-                  <a href="forget.html">忘记密码？</a>
+                  <a href="javascript:void(0);" onclick="undetermined()">忘记密码？</a>
                 </span>
               </div>
               
