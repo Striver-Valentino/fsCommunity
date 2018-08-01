@@ -66,24 +66,31 @@ public class CheckLoginInterceptor implements HandlerInterceptor {
 			Criteria criteria = example.createCriteria();
 			criteria.andTicketEqualTo(ticket);
 			List<LoginTicket> list = loginTicketMapper.selectByExample(example);
-			LoginTicket loginTicket = list.get(0);
 			
-			// 如果 loginTicket == null ，说明 ticket 是伪造的；
-            // 如果 ticket 过期时间 早于 当前时间，也是不行的；
-            // 如果 status 不等于0 ，说明 该 ticket 是无效的。
-			if(loginTicket == null || loginTicket.getExpired().before(new Date()) || loginTicket.getStatus() != 0){
-				// 如果 进入到这个 if ，说明 登陆 过期了，或没登陆，反正就是要去 登陆，所以 重定向 到 登录页面，不放行
+			if(list != null && list.size() != 0){
+				
+				LoginTicket loginTicket = list.get(0);
+			
+				// 如果 loginTicket == null ，说明 ticket 是伪造的；
+	            // 如果 ticket 过期时间 早于 当前时间，也是不行的；
+	            // 如果 status 不等于0 ，说明 该 ticket 是无效的。
+				if(loginTicket == null || loginTicket.getExpired().before(new Date()) || loginTicket.getStatus() != 0){
+					// 如果 进入到这个 if ，说明 登陆 过期了，或没登陆，反正就是要去 登陆，所以 重定向 到 登录页面，不放行
+					response.sendRedirect("/initlogin");
+					return false;
+				}
+				
+				// loginTicket 正常有效 的时候，查出 对应的 用户。
+				User user = userMapper.selectByPrimaryKey(loginTicket.getUserId());
+				
+				// 因为 这个查出的 User 在后面 还是要用到的，所以要把它保存起来，方便后面使用。
+	            // 这里 把 user 保存在 本地线程 变量中（ThreadLocal 封装在 HostHolder 中）
+				hostHolder.setUser(user);
+				return true;
+			}else{
 				response.sendRedirect("/initlogin");
 				return false;
 			}
-			
-			// loginTicket 正常有效 的时候，查出 对应的 用户。
-			User user = userMapper.selectByPrimaryKey(loginTicket.getUserId());
-			
-			// 因为 这个查出的 User 在后面 还是要用到的，所以要把它保存起来，方便后面使用。
-            // 这里 把 user 保存在 本地线程 变量中（ThreadLocal 封装在 HostHolder 中）
-			hostHolder.setUser(user);
-			return true;
 			
 		}
 		

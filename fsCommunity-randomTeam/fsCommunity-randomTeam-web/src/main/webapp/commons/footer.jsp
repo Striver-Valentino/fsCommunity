@@ -19,7 +19,7 @@
 
 
 <div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">fs社区</a> 2018 &copy; <a href="#" target="_blank">德克黑影团队 出品</a></p>
+  <p><a href="${pageContext.request.contextPath }/" target="_blank">fs社区</a> 2018 &copy; <a href="#" target="_blank">德克黑影团队 出品</a></p>
   <p>
   	友情链接：
     <a href="http://www.fsjoy.com/" target="_blank">fs官网</a>

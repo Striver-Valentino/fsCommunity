@@ -66,35 +66,41 @@ public class PassportInterceptor implements HandlerInterceptor {
 			Criteria criteria = example.createCriteria();
 			criteria.andTicketEqualTo(ticket);
 			List<LoginTicket> list = loginTicketMapper.selectByExample(example);
-			LoginTicket loginTicket = list.get(0);
+			if(list != null && list.size() != 0){
+				
+				LoginTicket loginTicket = list.get(0);
+				
+				// 如果 loginTicket == null ，说明 ticket 是伪造的；
+	            // 如果 ticket 过期时间 早于 当前时间，也是不行的；
+	            // 如果 status 不等于0 ，说明 该 ticket 是无效的。
+				if(loginTicket == null || loginTicket.getExpired().before(new Date()) || loginTicket.getStatus() != 0){
+					// 如果 进入到这个 if ，说明 登陆 过期了，或没登陆，不在 hostHolder 里 设置 当前用户，且 放行。
+					return true;
+				}
 			
-			// 如果 loginTicket == null ，说明 ticket 是伪造的；
-            // 如果 ticket 过期时间 早于 当前时间，也是不行的；
-            // 如果 status 不等于0 ，说明 该 ticket 是无效的。
-			if(loginTicket == null || loginTicket.getExpired().before(new Date()) || loginTicket.getStatus() != 0){
-				// 如果 进入到这个 if ，说明 登陆 过期了，或没登陆，不在 hostHolder 里 设置 当前用户，且 放行。
+			
+				// loginTicket 正常有效 的时候，查出 对应的 用户。
+				User user = userMapper.selectByPrimaryKey(loginTicket.getUserId());
+				
+				// 因为 这个查出的 User 在后面 还是要用到的，所以要把它保存起来，方便后面使用。
+	            // 这里 把 user 保存在 本地线程 变量中（ThreadLocal 封装在 HostHolder 中）
+				hostHolder.setUser(user);
+				
+				/**
+				 * 为了方便 jsp 页面 也能 获取 当前 用户，把 当前 用户 也保存在 session 中
+				 * 
+				 * request.getSession(true)：若存在会话则返回该会话，否则新建一个会话。
+				 *
+				 * request.getSession(false)：若存在会话则返回该会话，否则返回NULL
+				 */
+				HttpSession session = request.getSession(true);
+				session.setAttribute("loginUser", user);
+				
+				return true;
+			}else{
+				
 				return true;
 			}
-			
-			// loginTicket 正常有效 的时候，查出 对应的 用户。
-			User user = userMapper.selectByPrimaryKey(loginTicket.getUserId());
-			
-			// 因为 这个查出的 User 在后面 还是要用到的，所以要把它保存起来，方便后面使用。
-            // 这里 把 user 保存在 本地线程 变量中（ThreadLocal 封装在 HostHolder 中）
-			hostHolder.setUser(user);
-			
-			/**
-			 * 为了方便 jsp 页面 也能 获取 当前 用户，把 当前 用户 也保存在 session 中
-			 * 
-			 * request.getSession(true)：若存在会话则返回该会话，否则新建一个会话。
-			 *
-			 * request.getSession(false)：若存在会话则返回该会话，否则返回NULL
-			 */
-			HttpSession session = request.getSession(true);
-			session.setAttribute("loginUser", user);
-			
-			return true;
-			
 		}
 		
 		// 如果 ticket 是 null，说明用户 没有 登陆，不在 hostHolder 里 设置 当前用户，且 放行。

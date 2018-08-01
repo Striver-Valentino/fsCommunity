@@ -25,7 +25,7 @@ public class CodeKeysServiceImpl implements CodeKeysService {
 
 	@Override
 	public String getQiniuAK(){
-		CodekeysExample example = new CodekeysExample();
+		/*CodekeysExample example = new CodekeysExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andNameEqualTo("qiniuAK");
 		List<Codekeys> list = codekeysMapper.selectByExample(example);
@@ -33,12 +33,14 @@ public class CodeKeysServiceImpl implements CodeKeysService {
 		
 		System.out.println("qiniuAK:" + result);
 		
-		return result;
+		return result;*/
+		
+		return "2NRHRODNIiuMuRfM9aRCNRF5yGjuwk9piZ458VMI";
 	}
 	
 	@Override
 	public String getQiniuSK(){
-		CodekeysExample example = new CodekeysExample();
+		/*CodekeysExample example = new CodekeysExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andNameEqualTo("qiniuSK");
 		List<Codekeys> list = codekeysMapper.selectByExample(example);
@@ -46,12 +48,14 @@ public class CodeKeysServiceImpl implements CodeKeysService {
 		
 		System.out.println("qiniuSK:" + result);
 		
-		return result;
+		return result;*/
+		
+		return "BEk00p4fj6rOoihOuZ98gcaCJeymDO37gjrfrtX-";
 	}
 	
 	@Override
 	public String getSystemEmail(){
-		CodekeysExample example = new CodekeysExample();
+		/*CodekeysExample example = new CodekeysExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andNameEqualTo("systemEmail");
 		List<Codekeys> list = codekeysMapper.selectByExample(example);
@@ -59,12 +63,14 @@ public class CodeKeysServiceImpl implements CodeKeysService {
 		
 		System.out.println("systemEmail:" + result);
 		
-		return result;
+		return result;*/
+		
+		return "3540846483@qq.com";
 	}
 
 	@Override
 	public String getSystemEmailPwd(){
-		CodekeysExample example = new CodekeysExample();
+		/*CodekeysExample example = new CodekeysExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andNameEqualTo("systemEmailPwd");
 		List<Codekeys> list = codekeysMapper.selectByExample(example);
@@ -72,7 +78,9 @@ public class CodeKeysServiceImpl implements CodeKeysService {
 		
 		System.out.println("systemEmailPwd:" + result);
 		
-		return result;
+		return result;*/
+		
+		return "sldsektoqwardbhj";
 	}
 	
 	

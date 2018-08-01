@@ -12,6 +12,7 @@ import club.fsCommunity.pojo.Enroll;
  */
 public class GeneralUtils {
 
+	//public static String WEBSITE_DOMAIN_NAME = "http://106.15.185.36:8080";
 	public static String WEBSITE_DOMAIN_NAME = "http://localhost:8080";
 	
 	// 七牛 图片 存储 的 访问前缀

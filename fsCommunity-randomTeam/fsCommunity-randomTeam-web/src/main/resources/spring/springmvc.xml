@@ -51,6 +51,13 @@
             <mvc:exclude-mapping path="/initwebsiteIntroduction" />
             <mvc:exclude-mapping path="/inittermsOfService" />
             <mvc:exclude-mapping path="/regActive" />
+            <mvc:exclude-mapping path="/**/fonts/*"/>
+            <mvc:exclude-mapping path="/**/*.css"/>
+            <mvc:exclude-mapping path="/**/*.js"/>
+            <mvc:exclude-mapping path="/**/*.png"/>
+            <mvc:exclude-mapping path="/**/*.gif"/>
+            <mvc:exclude-mapping path="/**/*.jpg"/>
+            <mvc:exclude-mapping path="/**/*.jpeg"/>
             <bean class="club.fsCommunity.interceptor.CheckLoginInterceptor" />
         </mvc:interceptor>
         
@@ -74,6 +81,13 @@
             <mvc:exclude-mapping path="/logout" />
             <mvc:exclude-mapping path="/regActive" />
             <mvc:exclude-mapping path="/sendActEmailAgain" />
+            <mvc:exclude-mapping path="/**/fonts/*"/>
+            <mvc:exclude-mapping path="/**/*.css"/>
+            <mvc:exclude-mapping path="/**/*.js"/>
+            <mvc:exclude-mapping path="/**/*.png"/>
+            <mvc:exclude-mapping path="/**/*.gif"/>
+            <mvc:exclude-mapping path="/**/*.jpg"/>
+            <mvc:exclude-mapping path="/**/*.jpeg"/>
             <bean class="club.fsCommunity.interceptor.UserActivateInterceptor" />
         </mvc:interceptor>
          
@@ -84,5 +98,7 @@
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>  <!-- /WEB-INF/ 下的 资源 是不可以直接访问的，这里通过 springmvc 做中转 访问 /WEB-INF/ 下的 资源 -->
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
 	<mvc:resources location="/WEB-INF/res/" mapping="/res/**"/>
+	<mvc:resources location="/" mapping="/**/*.js"/>
+	<mvc:resources location="/" mapping="/**/*.css"/>
 	
 </beans>
