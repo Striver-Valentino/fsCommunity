@@ -21,11 +21,7 @@ import club.fsCommunity.pojo.GameExample.Criteria;
 import club.fsCommunity.service.SignUpGameService;
 import club.fsCommunity.service.IndexService;
 
-/**
- * 赛事报名 Controller
- * @author Administrator
- *
- */
+
 @Controller
 public class SignUpGameController {
 	
@@ -37,7 +33,7 @@ public class SignUpGameController {
 	
 	@RequestMapping("/initSignUpDetails")
 	public String initSignUpDetails(Model model){
-		return "signUpDetails"; // 跳转到 报名 详情 页（就是 填写 报名信息 那个 页面）
+		return "signUpDetails"; 
 	}
 	
 	@RequestMapping("/toSearchGame")
@@ -46,29 +42,20 @@ public class SignUpGameController {
 	}
 	
 	@RequestMapping(value="/initSignUpGame",produces = "text/html;charset=UTF-8", method = {RequestMethod.GET, RequestMethod.POST})
-	//@ResponseBody
 	public String initSignUpGame(Model model,@RequestParam("gameName") String gameName){
 		System.out.println("进入了方法：initSignUpGame");
 		System.out.println("SignUpGameController_gameName:"+gameName);
 		
-		//赛事名称 有 唯一约束
 		List<Game> list = signUpGameService.getGamesByName(gameName);
 		System.out.println("转换前的game:"+list.get(0));
-		System.out.println("转换后的game:"+PojoConvertUtils.GameConvertDisplay(list).get(0)); // 转换 ，方便显示时间格式。
-		//model.addAttribute("game", PojoConvertUtils.GameConvertDisplay(list).get(0));
+		System.out.println("转换后的game:"+PojoConvertUtils.GameConvertDisplay(list).get(0));
 		
 		Game game = list.get(0);
 		
-		//return "signUpGame"; // 跳转到 报名页面（查看 赛事 具体 信息 那个 页面）
-		return "redirect:/signUpGame/" + game.getId(); // 重定向
+		return "redirect:/signUpGame/" + game.getId(); 
 	}
 	
-	/**
-	 * 根据 赛事id 跳转（路径中带有gameId）
-	 * @param gameId
-	 * @param model
-	 * @return
-	 */
+	
 	@RequestMapping(value = {"/signUpGame/{gameId}"}, method = {RequestMethod.GET})
 	public String signUpGameByGameId(@PathVariable("gameId") String gameId,Model model){
 		
@@ -78,18 +65,11 @@ public class SignUpGameController {
 		model.addAttribute("game",game);
 		model.addAttribute("gameId",gameId);
 		
-		return "signUpGame"; // 跳转到 报名页面（查看 赛事 具体 信息 那个 页面）
+		return "signUpGame";
 		
 	}
 	
-	/**
-	 * 根据搜索条件显示赛事
-	 * @param model
-	 * @param condition
-	 * @param page
-	 * @param limit
-	 * @return
-	 */
+	
 	@RequestMapping("/showGamesByCondition")
 	@ResponseBody
 	public LayuiTableData showGamesByCondition(Model model,

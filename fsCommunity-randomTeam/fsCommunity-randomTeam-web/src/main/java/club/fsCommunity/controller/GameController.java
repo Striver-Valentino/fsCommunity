@@ -14,11 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import club.fsCommunity.pojo.Game;
 import club.fsCommunity.service.GameService;
 
-/**
- * 赛事 Controller
- * @author Administrator
- *
- */
+
 @Controller
 public class GameController {
 	
@@ -26,12 +22,7 @@ public class GameController {
 	private GameService gameService;
 	
 	
-	/**
-	 * 跳转到 赛事管理 页面
-	 * @param gameId
-	 * @param model
-	 * @return
-	 */
+	
 	@RequestMapping(value = {"/initOrganizeGame/{gameId}"})
 	public String initOrganizeGame(@PathVariable("gameId") String gameId,Model model){
 		Game game = gameService.getGameByGameId(gameId);
@@ -39,11 +30,7 @@ public class GameController {
 		return "game/organizeGame";
 	}
 	
-	/**
-	 * 取消赛事（把 赛事 状态 改为 4）
-	 * @param gameId
-	 * @return
-	 */
+	
 	@RequestMapping("/cancelGame")
 	public String cancelGame(@RequestParam("gameId") String gameId,Model model){
 		

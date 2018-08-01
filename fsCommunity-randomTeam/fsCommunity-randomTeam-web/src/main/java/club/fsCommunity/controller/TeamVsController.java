@@ -30,13 +30,7 @@ public class TeamVsController {
 	
 	
 	
-	/**
-	 * 查询 所有的 对阵情况
-	 * @param gameId
-	 * @param page
-	 * @param limit
-	 * @return
-	 */
+	
 	@RequestMapping(value = {"/selectAllTeamVsByGameId/{gameId}"}, method = {RequestMethod.GET})
 	@ResponseBody
 	public LayuiTableData selectAllTeamVsByGameId(
@@ -52,12 +46,7 @@ public class TeamVsController {
 		
 	}
 	
-	/**
-	 * 跳转到 toteamVs.jsp
-	 * @param gameId
-	 * @param model
-	 * @return
-	 */
+	
 	@RequestMapping("/toteamVs")
 	public String toteamVs(@RequestParam("gameId") String gameId,Model model){
 		

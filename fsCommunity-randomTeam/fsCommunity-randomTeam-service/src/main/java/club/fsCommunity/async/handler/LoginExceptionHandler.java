@@ -33,11 +33,7 @@ public class LoginExceptionHandler implements EventHandler {
 		Map<String,Object> map = new HashMap<String ,Object>();
 		map.put("username", eventModel.getExt("username"));
 		
-		/**
-         * 发送 登陆 异常 的 邮件
-         *
-         * 其它 类似 的 发邮件 业务 也可以 异步化。
-         */
+		
 		mailSender.sendWithHTMLTemplate(
 				eventModel.getExt("email"), 
 				"登陆异常", 

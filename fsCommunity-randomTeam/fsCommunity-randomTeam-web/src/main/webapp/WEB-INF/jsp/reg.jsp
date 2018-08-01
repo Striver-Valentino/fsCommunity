@@ -7,8 +7,6 @@
   <meta charset="utf-8">
   <title>fs社区 - 注册</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="fly,layui,前端社区">
-  <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
   
   <jsp:include page="/commons/common.jsp"></jsp:include>
   
@@ -32,15 +30,7 @@
         <div class="layui-tab-item layui-show">
           <div class="layui-form layui-form-pane">
             <form method="post" action="/reg" name="userreg">
-            	<!-- 
-            	<div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">用户名</label>
-                <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required lay-verify="email" autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid layui-word-aux">4~20个字符，请以字母开头</div>
-              </div>
-               -->
+            	
                
               <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">邮箱<font color="red">*</font></label>
@@ -77,7 +67,7 @@
 	                <button type="button" class="layui-btn" id="headUrlBtn" name="headUrlBtn" autocomplete="off">
 					  <i class="layui-icon">&#xe67c;</i>上传头像
 					</button>
-					<!-- 保存用户头像的链接 -->
+					
 					<input id="headUrl" type="hidden" name="headUrl" />
 	              </div>
 				
@@ -86,8 +76,8 @@
                 <div class="layui-input-inline" style="width: 260px">
                   <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请填写验证码" autocomplete="off" class="layui-input">
                 </div>
-                <div class=""> <!-- layui-form-mid -->
-                  <!-- <span style="color: #c00;">{{d.vercode}}</span> -->
+                <div class=""> 
+                  
                   <img id="imageCode" src="/imageCode" title="看不清？点击换一张" onclick="changeImage()"></img><font size="5" color="red">${msgvercode }</font>
                 </div>
               </div>
@@ -101,18 +91,12 @@
               </div>
               
               <div class="layui-form-item">
-			      <button class="layui-btn" lay-filter="reg" lay-submit>立即注册</button> <!-- onclick="submitReg();" -->
+			      <button class="layui-btn" lay-filter="reg" lay-submit>立即注册</button> 
 			      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			    
               </div>
               
-              <!--
-              <div class="layui-form-item fly-form-app">
-                <span>或者直接使用社交账号快捷注册</span>
-                <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-qq" title="QQ登入"></a>
-                <a href="" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-weibo" title="微博登入"></a>
-              </div>
-              -->
+              
               
             </form>
           </div>
@@ -126,26 +110,14 @@
 
 <jsp:include page="/commons/footer.jsp"></jsp:include>
 
-<!-- 
-<div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
-  <p>
-    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
-    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
-  </p>
-</div>
- -->
+
 
 
 <script type="text/javascript">
-	//换一张验证码
 	function changeImage(){
-		//不需要直接再发一次请求，只需要改变src的地址
 		var code  =document.getElementById("imageCode");
 		code.src="${pageContext.request.contextPath }/imageCode"+"?timestamp=" + new Date().getTime();
 				
-		//$("#imageCode").attr("src","${pageContext.request.contextPath }/imageCode");
 	}
 </script>
 
@@ -161,18 +133,7 @@
      function CheckPost () 
      {
     	 alert("reg");
-          /*if (userreg.user.value == "") 
-          {
-                alert("请填写用户名！");
-                addForm.username.focus();
-                return false;
-          }
-          if (addForm.title.value.length < 5) 
-          {
-                alert("标题不能少于5个字符！");
-                addForm.title.focus();
-                return false;
-          }*/
+          
           return true;
      }
  </script>
@@ -182,33 +143,28 @@
 	layui.use('form', function(){
 	  var form = layui.form;
 	  
-	  //各种基于事件的操作，下面会有进一步介绍
 	  
 	  form.on('submit(reg)', function(data){
-		  console.log(data.elem); //被执行事件的元素DOM对象，一般为button对象
-		  console.log(data.form); //被执行提交的form对象，一般在存在form标签时才会返回
-		  console.log(data.field);  //当前容器的全部表单字段，名值对形式：{name: value}
+		  console.log(data.elem); 
+		  console.log(data.form); 
+		  console.log(data.field); 
 		  
 		  if(data.form.password.value != data.form.repass.value){
-			  //alert(data.form.pass.value);
-			  //alert(data.form.repass.value);
 			  layer.alert('两次输入的密码不一样！', {icon: 2});
 			  return false;
 		  }
 		  
 		  if(!data.form.agreement.checked){
 			  layer.alert('为了方便管理，请您勾选同意用户服务条款', {icon: 7});
-			  return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+			  return false; 
 		  }
 		  
-		  //layer.alert('两次的密码一样！');
-		  //alert("hello");
 		  return true;
 	  });
 	  
 	  
 	  form.verify({
-		  username: function(value, item){ //value：表单的值、item：表单的DOM对象
+		  username: function(value, item){
 		    if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
 		      return '用户名不能有特殊字符';
 		    }
@@ -220,8 +176,6 @@
 		    }
 		  }
 	  
-		  //我们既支持上述函数式的方式，也支持下述数组的形式
-		  //数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
 		  ,pass: [
 		    /^[\S]{10,16}$/
 		    ,'密码必须10到16位，且不能出现空格'
@@ -239,36 +193,22 @@
  
  
  <script>
-    // 图片上传 js
 	layui.use('upload', function(){
 	  var upload = layui.upload;
 	   
-	  //执行实例
 	  var uploadInst = upload.render({
-	    elem: '#headUrlBtn'  // 绑定元素
-	    ,url: '/uploadImage' //上传接口
+	    elem: '#headUrlBtn' 
+	    ,url: '/uploadImage'
 	    
-    	, before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
-    	    layer.load(); //上传loading
+    	, before: function(obj){ 
+    	    layer.load(); 
     	}
 	  
 	    ,done: function(res, index, upload){
-	    	layer.closeAll('loading'); //关闭loading
+	    	layer.closeAll('loading'); 
 	    	
-	      //上传完毕回调
-	      //alert("上传完毕回调");
-	      
-	    	//alert(res);
-	    	//alert(res.code);
-	    	
-	      //var jsonobj=eval("("+res+")");
-	      
-	      //alert(jsonobj);
 	      
 	      if(res.code == 0){
-	          //do something （比如将res返回的图片链接保存到表单的隐藏域）
-	          //alert("上传成功");
-	    	  //alert("图片链接" + res.imageUrl);
 	    	  $('#headUrl').val(res.imageUrl);
 	    	  
 	    	  layer.alert('上传头像成功');
@@ -276,20 +216,16 @@
 	      }
 	      if(res.code == 1){
 	    	layer.alert('上传出错了，请刷新页面后再重新上传');
-	      	//alert("上传出错");
 	      }
 	      
-	      //alert($('#headUrl').val());
 	     
 	    }
 	    ,error: function(){
-	      //请求异常回调
-	      //alert("请求异常回调");
 	      layer.alert('上传异常了');
 	    }
 	    
-	    ,accept: 'images' //允许上传的文件类型
-	    ,size: 3000 //最大允许上传的文件大小,单位 KB
+	    ,accept: 'images' 
+	    ,size: 3000 
 	    
 	  });
 	});

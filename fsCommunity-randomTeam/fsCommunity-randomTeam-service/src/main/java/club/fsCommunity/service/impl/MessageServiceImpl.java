@@ -24,9 +24,7 @@ public class MessageServiceImpl implements MessageService {
 	private MessageMapper messageMapper;
 	
 	
-	/**
-	 * 增加一条站内信
-	 */
+	
 	@Override
 	public Map<String, Object> addMessage(String fromId,String toId,String content) {
 		
@@ -56,14 +54,12 @@ public class MessageServiceImpl implements MessageService {
 		message.setHasRead(0);
 		message.setStatus(0);
 		
-		// 设置 会话id
 		String conversationId = GeneralUtils.generateConversationId(fromId, toId);
 		System.out.println("conversationId:" + conversationId);
 		
 		message.setConversationId(conversationId);
 		
 		
-		// 插入数据库
 		messageMapper.insert(message);
 		
 		map.put("addMessageSuc", "addMessageSuc");
@@ -72,26 +68,22 @@ public class MessageServiceImpl implements MessageService {
 	}
 
 
-	/**
-	 * 得到 某用户 的 所有 站内信
-	 */
+	
 	@Override
 	public List<Message> getAllMessageByUserId(String userId) {
 		
 		MessageExample example = new MessageExample();
 		
-		// 根据逻辑表达式可以知道 a and ( b or c ) = ( a and b) or ( a and c )
 		Criteria criteria1 = example.createCriteria();
-		criteria1.andStatusEqualTo(0); // 只查找没有删除的站内信
+		criteria1.andStatusEqualTo(0);
 		criteria1.andFromIdEqualTo(userId);
 		
 		Criteria criteria2 = example.createCriteria();
 		criteria2.andStatusEqualTo(0);
 		criteria2.andToIdEqualTo(userId);
 		
-		example.or(criteria2);   // userId 是  fromId 或者  toId
+		example.or(criteria2);
 		
-		// 设置排序，先按 enroll_date 逆向排序，如果 enroll_date 相同 ，再按 game_name 逆向排序
 		example.setOrderByClause("`created_date` DESC,`content` DESC");
 		
 		List<Message> list = messageMapper.selectByExampleWithBLOBs(example);
@@ -100,9 +92,7 @@ public class MessageServiceImpl implements MessageService {
 	}
 
 
-	/**
-	 * 删除一条站内信（实际上只是 把 站内信的状态 修改为 1）
-	 */
+	
 	@Override
 	public Map<String, Object> deleteMessage(String messageId) {
 		

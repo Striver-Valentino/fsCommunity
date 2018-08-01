@@ -29,10 +29,7 @@
 	<jsp:include page="/commons/GamePartMenu.jsp"></jsp:include>
 
 
-	<!-- 
-	<div class="fly-none" style="min-height: 0; padding: 0;">
-	  <i class="iconfont icon-tishilian"></i>
-	</div> -->
+	
 	
 	<div class="notice layui-text"> 
 		<font size="5" color="red">${requestScope.sendActAgain }</font> <br> <br>

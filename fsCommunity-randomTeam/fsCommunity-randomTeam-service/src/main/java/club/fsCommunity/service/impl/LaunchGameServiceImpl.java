@@ -42,7 +42,6 @@ public class LaunchGameServiceImpl implements LaunchGameService {
 		}
 		
 		
-		// 通过以上验证，就可以开始 添加 赛事了。
 		
 		game.setId(randomNumberUtil.generateGameID());
 		game.setApplyCount(0);
@@ -60,9 +59,7 @@ public class LaunchGameServiceImpl implements LaunchGameService {
 
 	
 	
-	/**
-	 * 通过 赛事名称  查找 赛事
-	 */
+	
 	@Override
 	public Game selectGameByName(String name) {
 		

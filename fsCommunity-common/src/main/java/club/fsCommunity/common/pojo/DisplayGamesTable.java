@@ -5,23 +5,12 @@ import java.util.Date;
 
 import club.fsCommunity.pojo.Game;
 
-/**
- * 因为 Game 类型 的数据，里面的 status 属性 的值 是  0,1,2,3,4 ，不应该把这种值 显示到 页面上（其他属性也有类似问题），
- * 所以 在 Game 基础上 再封装一个类，用于显示在 页面上。
- * @author Administrator
- *
- */
 public class DisplayGamesTable extends Game {
 	
-	// 显示到页面的 开始时间 ，字符串类型
 	private String startDateDisplay;
-	// 显示到页面的 结束时间 ，字符串类型
 	private String endDateDisplay;
-	// 显示到页面的 报名截止时间 ，字符串类型
 	private String signUpLineDisplay;
-	// 显示到页面的 发起赛事时间 ，字符串类型
 	private String launchDateDisplay;
-	// 显示到页面的 赛事状态 ，字符串类型
 	private String statusDisplay;
 	
 	

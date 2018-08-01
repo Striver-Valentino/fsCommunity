@@ -10,9 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import club.fsCommunity.model.HostHolder;
 
-/**
- * 检查 用户 是否 有访问权限 的 拦截器
- */
+
 @Service
 public class LoginRequiredInterceptor implements HandlerInterceptor {
 
@@ -24,20 +22,14 @@ public class LoginRequiredInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		
-		/**
-         * 前一个拦截器 PassportInterceptor 已经 验证 过 登陆 的有效性，如果有效 才会把 user 对象 放到 hostHolder 并且 放行；
-         * 如果 没有登陆，或 登陆 无效，是不会放行的，也不会 访问到 这个 LoginRequiredInterceptor 拦截器，所以 下面这个 判断 可有可无。
-         */
-		if(hostHolder.getUser() == null){ // hostHolder 里没有 用户，说明 没有登陆，不能访问，跳转到 登陆页面 去 先登陆
+		
+		if(hostHolder.getUser() == null){ 
 			response.sendRedirect("/login");
 			return false;
 		}
 		
-		/**
-		 * 判断权限，比如 要登录管理员页面，那么要判断 用户 是否是 管理员。
-		 */
 		
-		// 暂时 不写 判断权限 逻辑
+		
 		System.out.println("判断了用户权限");
 		
 		return true;
@@ -47,7 +39,6 @@ public class LoginRequiredInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -55,7 +46,6 @@ public class LoginRequiredInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 

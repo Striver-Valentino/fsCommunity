@@ -15,8 +15,6 @@
 
 
 <script type="text/javascript">
-	//调用signUpDetails.jsp页面的addBack()方法
-	//window.parent：就是signUpDetails.jsp页面  （父页面）
 	window.parent.signupBack();
 </script>
 

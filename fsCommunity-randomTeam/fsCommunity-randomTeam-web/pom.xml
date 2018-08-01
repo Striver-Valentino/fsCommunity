@@ -7,16 +7,12 @@
   </parent>
   <artifactId>fsCommunity-randomTeam-web</artifactId>
   <packaging>war</packaging>
-  
-  
-  <!-- 添加依赖 -->
   <dependencies>
   	<dependency>
   		<groupId>club.fsCommunity</groupId>
 	    <artifactId>fsCommunity-randomTeam-service</artifactId>
 	    <version>0.0.1-SNAPSHOT</version>
   	</dependency>
-  	<!-- JSP相关 -->
 	<dependency>
 		<groupId>jstl</groupId>
 		<artifactId>jstl</artifactId>
@@ -29,35 +25,26 @@
 	<dependency>
 		<groupId>javax.servlet</groupId>
 		<artifactId>jsp-api</artifactId>
-		<scope>provided</scope> <!-- provided表明该包只在编译和测试的时候用，不会一起打包 -->
+		<scope>provided</scope> 
 	</dependency>
-	<!-- 文件上传组件 -->
 	<dependency>
 		<groupId>commons-fileupload</groupId>
 		<artifactId>commons-fileupload</artifactId>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/org.apache.clerezza.ext/org.json.simple -->
 	<dependency>
 	    <groupId>org.apache.clerezza.ext</groupId>
 	    <artifactId>org.json.simple</artifactId>
 	</dependency>
-	
 	<dependency>
 		  <groupId>org.csource</groupId>
 		  <artifactId>fastdfs-client-java</artifactId>
 		  <version>1.27-SNAPSHOT</version>
 	</dependency>
-	
-	<!-- spring-webmvc -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-webmvc</artifactId>
 	</dependency>
-	
   </dependencies>
-  
-  
-  
   <build>
     <plugins>
         <plugin>
@@ -69,8 +56,4 @@
         </plugin>
     </plugins>
 </build>
-  
-  
-  
-  
 </project>

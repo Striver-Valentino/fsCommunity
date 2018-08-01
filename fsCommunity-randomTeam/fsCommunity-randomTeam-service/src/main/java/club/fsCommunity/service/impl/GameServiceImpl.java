@@ -35,15 +35,13 @@ public class GameServiceImpl implements GameService {
 		return gameMapper.insert(game);
 	}
 
-	/**
-	 * 查询某个用户 发起的 所有赛事
-	 */
+	
 	@Override
 	public List<Game> getLaunchGameByUserId(String userId) {
 		GameExample example = new GameExample();
 		Criteria criteria = example.createCriteria();
-		criteria.andLaunchUserIdEqualTo(userId);  //  根据 发起者 id 查找
-		criteria.andStatusNotEqualTo(4); // 不显示 已取消 的 赛事
+		criteria.andLaunchUserIdEqualTo(userId);
+		criteria.andStatusNotEqualTo(4);
 		
 		example.setOrderByClause("`launch_date` DESC,`name` DESC");
 		
@@ -52,13 +50,10 @@ public class GameServiceImpl implements GameService {
 		return list;
 	}
 
-	/**
-	 * 查询某个用户 报名的 所有赛事
-	 */
+	
 	@Override
 	public List<Game> getEnrollGameByUserId(String userId) {
 		
-		// 现找到 用户 所有的报名信息 实体，然后 从里面 获取 报名 的 赛事id
 		List<Enroll> list = enrollService.selectEnrollByUserId(userId);
 		
 		System.out.println("getEnrollGameByUserId - list:" + list);
@@ -82,18 +77,14 @@ public class GameServiceImpl implements GameService {
 		return gameList;
 	}
 
-	/**
-	 * 通过 赛事id 查找 赛事
-	 */
+	
 	@Override
 	public Game getGameByGameId(String gameId) {
 		Game game = gameMapper.selectByPrimaryKey(gameId);
 		return game;
 	}
 
-	/**
-	 * 取消赛事（把 赛事 状态 改为 4）
-	 */
+	
 	@Override
 	public Map<String, Object> cancelGame(String gameId) {
 		
@@ -124,9 +115,7 @@ public class GameServiceImpl implements GameService {
 		return map;
 	}
 
-	/**
-	 * 赛事 报名人数  +1
-	 */
+	
 	@Override
 	public Map<String, Object> applyCountAddOne(String gameId) {
 		
@@ -157,9 +146,7 @@ public class GameServiceImpl implements GameService {
 		return map;
 	}
 
-	/**
-	 * 更新 赛事 分组状态，改为1
-	 */
+	
 	@Override
 	public Map<String, Object> updateGroupStatus(String gameId) {
 		
@@ -190,9 +177,7 @@ public class GameServiceImpl implements GameService {
 		return map;
 	}
 
-	/**
-	 * 查询最近一个星期发起的赛事（只查找 状态为0、1的）
-	 */
+	
 	@Override
 	public List<Game> selectAllGamesLastWeek() {
 		Date date = new Date();
@@ -200,11 +185,11 @@ public class GameServiceImpl implements GameService {
 		GameExample example = new GameExample();
 		Criteria criteria1 = example.createCriteria();
 		criteria1.andStatusEqualTo(0);
-		criteria1.andLaunchDateBetween(GeneralUtils.callLastTime(date, -7), date); // 7天前，到现在 为止
+		criteria1.andLaunchDateBetween(GeneralUtils.callLastTime(date, -7), date); 
 		
 		Criteria criteria2 = example.createCriteria();
 		criteria2.andStatusEqualTo(1);
-		criteria1.andLaunchDateBetween(GeneralUtils.callLastTime(date, -7), date); // 7天前，到现在 为止
+		criteria1.andLaunchDateBetween(GeneralUtils.callLastTime(date, -7), date); 
 		
 		example.or(criteria2);
 		

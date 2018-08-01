@@ -7,8 +7,7 @@ public class LayuiTableData {
 	private int code;
 	private String msg;
 	private long count;
-	private List<?> data; // List<?> 说明泛型类型不确定
-                          // List<T> 泛型类型是确定的；需要在类上声明泛型，在new LayuiTableData<T> 的时候，T已经确定
+	private List<?> data;
 	
 	public int getCode() {
 		return code;

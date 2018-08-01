@@ -6,16 +6,12 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>fsCommunity-randomTeam-dao</artifactId>
-  
-  
-  <!-- 添加依赖 -->
   <dependencies>
   	<dependency>
 		<groupId>club.fsCommunity</groupId>
 	    <artifactId>fsCommunity-randomTeam-pojo</artifactId>
 	    <version>0.0.1-SNAPSHOT</version>
   	</dependency>
-  	<!-- Mybatis -->
 	<dependency>
 		<groupId>org.mybatis</groupId>
 		<artifactId>mybatis</artifactId>
@@ -26,60 +22,30 @@
 	</dependency>
 	<dependency>
 		<groupId>com.github.miemiedev</groupId>
-		<artifactId>mybatis-paginator</artifactId> <!-- mybatis的分页插件 -->
+		<artifactId>mybatis-paginator</artifactId> 
 	</dependency>
 	<dependency>
 		<groupId>com.github.pagehelper</groupId>
-		<artifactId>pagehelper</artifactId> <!-- mybatis的分页插件 -->
+		<artifactId>pagehelper</artifactId> 
 	</dependency>
-	<!-- MySql -->
 	<dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
 	</dependency>
-	<!-- 连接池 -->
 	<dependency>
 		<groupId>com.alibaba</groupId>
 		<artifactId>druid</artifactId>
 	</dependency>
   </dependencies>
-  
-  	<!-- 
-  		/src/main/java ：默认只处理 java 类，其他的 *.xml，*.properties都不会处理
-  		/src/main/resources ：默认处理  *.xml，*.properties等 资源文件、配置文件
-  		
-  		而 /src/main/java/com.taotao.mapper 里 有 *Mapper.xml ，如果没有被处理（编译），运行的时候，就会找不到  Mapper接口 对应的 Mapper映射文件，会报错。
-  		
-  	 -->
-	<!-- 如果不添加此节点，mybatis的mapper.xml文件都会被漏掉。 -->
 	<build>
-		<!-- resources:描述工程中资源的位置；资源 是指 配置文件等 -->
 		<resources>
-			   <!-- 可以有多个 resource  -->
 	           <resource>
-	           	   <!-- directory:指定属性文件（*.xml，*.properties等）的目录，build的过程需要找到属性文件，并且将其放到target下，默认的directory是${basedir}/src/main/resources -->
 	               <directory>src/main/java</directory>
-	               <!-- includes:指定包含文件的patterns,符合样式并且在directory目录下的文件将会包含进project的资源文件（target下）。 -->
 	               <includes>
-	                   <include>**/*.properties</include>
-	                   <include>**/*.xml</include>
+	                   <include>***.xml</include>
 	               </includes>
-	               <!-- 
-	               		 filtering功能
-	               		   主要用来替换项目中的资源文件（*.xml、*.properties）当中的${...}，比如${db.url}，那么如果配置了db.url=aaa的话，在项目编译的时候，就会自动的把${db.url}替换为aaa
-	               		 写 false 就是不替换
-	                -->
 	               <filtering>false</filtering>
 	           </resource>
-	           
 	       </resources>
 	</build>
-  
-  
-  
-  
-  
-  
-  
-  
 </project>

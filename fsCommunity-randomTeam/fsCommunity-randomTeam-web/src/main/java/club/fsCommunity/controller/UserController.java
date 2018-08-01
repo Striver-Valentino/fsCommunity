@@ -47,12 +47,7 @@ public class UserController {
 	
 	
 
-	/**
-	 * 跳转到 用户中心 首页 （实际上，用户中心 首页 就是 “我的赛事”页面）
-	 * @param Enrollok
-	 * @param model
-	 * @return
-	 */
+	
 	@RequestMapping("/initUserIndex")
 	public String initUserIndex(@RequestParam(value="Enrollok",defaultValue="") String Enrollok,Model model){
 		
@@ -60,9 +55,7 @@ public class UserController {
 		model.addAttribute("Enrollok", Enrollok);
 		
 		System.out.println("initUserIndex 当前用户id:" + hostHolder.getUser().getId());
-		//通过 userId 得到 某个用户 发起的赛事 与 报名的赛事（实际上获得的是报名实体Enroll，因为Enroll有 报名时间 字段，方便页面显示）
 		List<Game> launchGameList = gameService.getLaunchGameByUserId(hostHolder.getUser().getId());
-		//List<Game> enrollGameList = gameService.getEnrollGameByUserId(hostHolder.getUser().getId());
 		List<Enroll> enrollList = enrollService.selectEnrollByUserId(hostHolder.getUser().getId());
 		
 		System.out.println("launchGameList:" + launchGameList);
@@ -74,10 +67,7 @@ public class UserController {
 		return "user/userGame";
 	}
 	
-	/**
-	 * 跳转到 用户中心 的 基本设置
-	 * @return
-	 */
+	
 	@RequestMapping("/initUserSet")
 	public String initUserSet(@RequestParam(value="updateOK2",defaultValue="") String updateOK2,Model model){
 		System.out.println("updateOK2:"+updateOK2);
@@ -86,13 +76,7 @@ public class UserController {
 		return "user/setGameName";
 	}
 	
-	/**
-	 * 修改游戏昵称
-	 * @param user
-	 * @param model
-	 * @param userId
-	 * @return
-	 */
+	
 	@RequestMapping("/updateUserGameName")
 	public String updateUserGameName(User user,Model model,String userId){
 		
@@ -118,13 +102,7 @@ public class UserController {
 		
 	}
 	
-	/**
-	 * 修改用户头像
-	 * @param user
-	 * @param model
-	 * @param userId
-	 * @return
-	 */
+	
 	@RequestMapping("/updateUserHeadUrl")
 	public String updateUserHeadUrl(User user,Model model,String userId){
 		
@@ -150,14 +128,7 @@ public class UserController {
 		
 	}
 	
-	/**
-	 * 修改用户密码
-	 * @param userId
-	 * @param oldPwd
-	 * @param newPwd
-	 * @param confirmPwd
-	 * @return
-	 */
+	
 	@RequestMapping("/updateUserPassword")
 	public String updateUserPassword(String userId,String oldPwd, String newPwd,String confirmPwd,Model model){
 		

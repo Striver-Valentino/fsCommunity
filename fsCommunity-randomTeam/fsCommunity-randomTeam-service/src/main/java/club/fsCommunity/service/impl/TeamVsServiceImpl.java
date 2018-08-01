@@ -33,9 +33,7 @@ public class TeamVsServiceImpl implements TeamVsService {
 	
 	
 
-	/**
-	 * 添加一组对阵
-	 */
+	
 	@Override
 	public Map<String, Object> addTeamVs(String team1Id,String team2Id,String gameId) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -49,14 +47,12 @@ public class TeamVsServiceImpl implements TeamVsService {
 		teamVs.setTeam2Id(team2Id);
 		teamVs.setVsSign("VS");
 		
-		// 设置对阵 的 名字
 		Team team1 = teamService.selectTeamByTeamId(team1Id).get(0);
 		Team team2 = teamService.selectTeamByTeamId(team2Id).get(0);
 		teamVs.setName(
 				team1.getName() + "(" + team1.getLineup() + ")" + "  VS  " + team2.getName() + "(" + team2.getLineup() + ")"
 		);
 		
-		// 设置 队伍1、队伍2 的 名字、阵容
 		teamVs.setTeam1Name(team1.getName());
 		teamVs.setTeam1Lineup(team1.getLineup());
 		teamVs.setTeam2Name(team2.getName());
@@ -71,14 +67,11 @@ public class TeamVsServiceImpl implements TeamVsService {
 
 
 
-	/**
-	 * 查询 一个赛事的 所有 对阵情况
-	 */
+	
 	@Override
 	public LayuiTableData selectAllTeamVsByGameId(String gameId, Integer page,
 			Integer limit) {
 		
-		//开始分页
 		PageHelper.startPage(page, limit);
 		
 		TeamVsExample example = new TeamVsExample();
@@ -86,7 +79,6 @@ public class TeamVsServiceImpl implements TeamVsService {
 		criteria.andGameIdEqualTo(gameId);
 		List<TeamVs> list = teamVsMapper.selectByExampleWithBLOBs(example);
 		
-		// 得到分页信息
 		PageInfo<TeamVs> pageInfo = new PageInfo<TeamVs>(list);
 		
 		LayuiTableData data = new LayuiTableData();

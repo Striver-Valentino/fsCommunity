@@ -28,12 +28,7 @@ public class TeamController {
 	private GameService gameService;
 	
 	
-	/**
-	 * 开始分组
-	 * @param gameId
-	 * @param model
-	 * @return
-	 */
+	
 	@RequestMapping("/startGroup")
 	public String startGroup(@RequestParam("gameId") String gameId,Model model){
 		
@@ -58,13 +53,7 @@ public class TeamController {
 	}
 	
 	
-	/**
-	 * 查询所有的队伍
-	 * @param gameId
-	 * @param page
-	 * @param limit
-	 * @return
-	 */
+	
 	@RequestMapping(value = {"/selectAllTeamByGameId/{gameId}"}, method = {RequestMethod.GET})
 	@ResponseBody
 	public LayuiTableData selectAllTeamByGameId(
@@ -80,7 +69,6 @@ public class TeamController {
 		
 	}
 	
-	// 测试URL
 	@RequestMapping("/testUrl")
 	public String testUrl(@RequestParam("hello") String hello){
 		

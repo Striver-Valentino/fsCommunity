@@ -15,7 +15,6 @@ public class LoginTicketServiceImpl implements LoginTicketService {
 	
 	@Override
 	public LoginTicket selectLoginTicketByTicket() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

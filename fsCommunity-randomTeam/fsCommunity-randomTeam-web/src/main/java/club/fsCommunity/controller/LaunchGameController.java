@@ -20,11 +20,7 @@ import club.fsCommunity.pojo.Game;
 import club.fsCommunity.pojo.User;
 import club.fsCommunity.service.LaunchGameService;
 
-/**
- * 发起赛事 Controller
- * @author Administrator
- *
- */
+
 @Controller
 public class LaunchGameController {
 
@@ -54,7 +50,6 @@ public class LaunchGameController {
 		System.out.println("endDate1:" + endDate);
 		System.out.println("signUpLine1:" + signUpLine);
 		
-		// springmvc 不能把 String 转化成 Date，需要手动转化。
 		try {
 			game.setStartDate(sdf.parse(startDate));
 			game.setEndDate(sdf.parse(endDate));
@@ -67,14 +62,13 @@ public class LaunchGameController {
 		User loginUser = hostHolder.getUser();
 		System.out.println("launchGame_loginUser:" + loginUser);
 		System.out.println("launchGame_game:" + game);
-		game.setLaunchUserId(loginUser.getId()); // 设置 该赛事 发起者 的 用户id
-		game.setLaunchUserName(loginUser.getGameName()); // 设置 该赛事 发起者 的 游戏昵称
+		game.setLaunchUserId(loginUser.getId());
+		game.setLaunchUserName(loginUser.getGameName()); 
 		
 		Map<String, Object> map = launchGameService.addOneGame(game);
 		
 		if(map.containsKey("launchSuccess")){
 			
-			//model.addAttribute("launchSuc", JsonUtil.getJSONString(0, "发起赛事成功"));
 			model.addAttribute("launchSuc", "发起赛事成功");
 			
 			return "searchGame";

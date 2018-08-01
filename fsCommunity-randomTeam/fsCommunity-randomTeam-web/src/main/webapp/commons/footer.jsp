@@ -24,9 +24,7 @@
   	友情链接：
     <a href="http://www.fsjoy.com/" target="_blank">fs官网</a>
     <a href="https://tieba.baidu.com/f?kw=%BD%D6%CD%B7%C0%BA%C7%F2&fr=ala0&tpl=5" target="_blank">fs贴吧</a>
-    <!-- 
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
-     -->
+    
   </p>
 </div>
 

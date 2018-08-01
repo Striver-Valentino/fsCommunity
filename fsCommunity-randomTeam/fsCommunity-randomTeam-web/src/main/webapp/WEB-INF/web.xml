@@ -7,7 +7,6 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
-		<!-- <welcome-file>index.jsp</welcome-file> -->
 		<welcome-file>default.html</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
@@ -44,7 +43,6 @@
 	<servlet>
 		<servlet-name>fsCommunity-randomTeam</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<!-- contextConfigLocation不是必须的， 如果不配置contextConfigLocation， springmvc的配置文件默认在：WEB-INF/servlet的name+"-servlet.xml" -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring/springmvc.xml</param-value>
@@ -53,7 +51,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>fsCommunity-randomTeam</servlet-name>
-		<url-pattern>/</url-pattern>  <!-- 写 / 会把静态资源（css，js等）也拦截，解决办法是 在 springmvc.xml 中 配置一个 资源映射 --> 
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
 	

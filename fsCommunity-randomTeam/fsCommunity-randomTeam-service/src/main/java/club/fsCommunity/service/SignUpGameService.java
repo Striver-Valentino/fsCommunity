@@ -12,7 +12,6 @@ public interface SignUpGameService {
 	
 	List<Game> getGamesByName(String gameName);
 	
-	// 根据 id 查找 赛事 
 	Game getGameById(String gameId);
 	
 }

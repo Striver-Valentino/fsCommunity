@@ -15,11 +15,7 @@ import club.fsCommunity.common.utils.GeneralUtils;
 import club.fsCommunity.common.utils.randomNumberUtil;
 import club.fsCommunity.email.MailSender;
 
-/**
- * 处理 注册 事件 的 Handler
- * @author Administrator
- *
- */
+
 @Service
 public class RegActiveEmailHandler implements EventHandler {
 	
@@ -31,7 +27,7 @@ public class RegActiveEmailHandler implements EventHandler {
 		
 		String domain_name = GeneralUtils.WEBSITE_DOMAIN_NAME;
 		
-		// 注册成功后，发送激活邮件
+		
 		
 		Map<String,Object> map = new HashMap<String,Object>();
 		
@@ -46,7 +42,6 @@ public class RegActiveEmailHandler implements EventHandler {
 				map
 		);
 		
-		// 注册成功后，发送 站内信，提示查看邮件
 		
 	}
 

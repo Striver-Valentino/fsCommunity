@@ -8,10 +8,10 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<!-- 数据库连接池 -->
-	<!-- 加载配置文件 -->
+	
+	
 	<context:property-placeholder location="classpath:properties/*.properties" />
-	<!-- 数据库连接池 -->
+	
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		destroy-method="close">
 		<property name="url" value="${jdbc.url}" />
@@ -22,17 +22,17 @@
 		<property name="minIdle" value="5" />
 	</bean>
 	
-	<!-- 让spring管理sqlsessionfactory 使用mybatis和spring整合包中的 -->
+	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<!-- 数据库连接池 -->
+		
 		<property name="dataSource" ref="dataSource" />
-		<!-- 加载mybatis的全局配置文件 -->
+		
 		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
 	</bean>
 	
-	<!-- 扫描mybatis映射文件，即 *mapper.xml -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> <!-- MapperScannerConfigurer 是 mybatis和spring整合包中的  -->
-		<!-- com.taotao.mapper 包 应放在 taotao-manager-dao工程目录下，以后 taotao-manager-dao 会 打包成jar包放在 taotao-manager-web 打包的war包里，com.taotao.mapper 包也可以被扫描到 -->
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
+		
 		<property name="basePackage" value="club.fsCommunity.mapper" />
 	</bean>
 	

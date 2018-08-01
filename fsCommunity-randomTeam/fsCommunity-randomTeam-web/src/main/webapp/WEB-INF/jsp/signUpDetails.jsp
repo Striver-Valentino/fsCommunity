@@ -20,38 +20,11 @@
 			<form class="layui-form" id="signupdetail">
 				<blockquote class="layui-elem-quote layui-quote-nm"><font size="6" color="#000000"> 请填写您的报名信息 </font></blockquote>
 				
-				<!-- 
-				<div class="layui-form-item">
-					<label class="layui-form-label">请选择您的参赛职业</label>
-					<div class="layui-input-block">
-						<select name="zhiye" lay-filter="aihao">
-							<option value="C">C</option>
-							<option value="PF">PF</option>
-							<option value="SF">SF</option>
-							<option value="SG">SG</option>
-							<option value="PG">PG</option>
-							<option value="SW">SW</option>
-						</select>
-					</div>
-				</div>
-				 -->
 				
-				<!-- 
-				<div class="layui-form-item">
-					<label class="layui-form-label">游戏昵称</label>
-					<div class="layui-input-block">
-						<input type="text" name="gameName" placeholder="请输入您在游戏中的昵称，如：小龙女" autocomplete="off" class="layui-input" value="">
-					</div>
-				</div>
-				 -->
 				
-				<!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素
-				<div class="layui-form-item">
-					<label class="layui-form-label">游戏角色名</label>
-					<div class="layui-input-block">
-						<input type="text" name="" placeholder="请输入您要用来参赛的游戏角色名" autocomplete="off" class="layui-input">
-					</div>
-				</div> -->
+				
+				
+				
 				
 				
 				
@@ -67,20 +40,7 @@
 					</div>
 				</div>
 				
-				<!--
-				<div class="layui-form-item">
-					<label class="layui-form-label">开关关</label>
-					<div class="layui-input-block">
-						<input type="checkbox" lay-skin="switch">
-					</div>
-				</div>
-				<div class="layui-form-item">
-					<label class="layui-form-label">开关开</label>
-					<div class="layui-input-block">
-						<input type="checkbox" checked lay-skin="switch">
-					</div>
-				</div>
-				-->
+				
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">请选择您的游戏RT</label>
@@ -95,13 +55,7 @@
 						<input type="radio" name="rating" value="C" title="C" checked>
 					</div>
 				</div>
-				<!-- 
-				<div class="layui-form-item layui-form-text">
-					<label class="layui-form-label">请填写您对本赛事的期待</label>
-					<div class="layui-input-block">
-						<textarea placeholder="非必填，请填写您对本赛事的期待，如：你要夺冠" class="layui-textarea"></textarea>
-					</div>
-				</div> -->
+				
 				<div class="layui-form-item layui-form-text">
 					<label class="layui-form-label">请填写您对本赛事的期待</label>
 					<div class="layui-input-block">
@@ -109,15 +63,8 @@
 					</div>
 				</div>
 				
-				<!-- 
-				<div class="layui-form-item">
-					<div class="layui-input-block">
-						<button class="layui-btn" lay-submit lay-filter="enroll">确定</button>
-						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-					</div>
-				</div>
-				 -->
-				<!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+				
+				
 			</form>
 			
 			
@@ -135,7 +82,6 @@
 		layui.use('form', function() {
 			var form = layui.form;
 
-			//各种基于事件的操作，下面会有进一步介绍
 		});
 	</script>
 

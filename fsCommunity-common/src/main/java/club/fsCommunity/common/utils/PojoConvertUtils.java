@@ -9,20 +9,10 @@ import org.springframework.beans.BeanUtils;
 import club.fsCommunity.common.pojo.DisplayGamesTable;
 import club.fsCommunity.pojo.Game;
 
-/**
- * 实体类 之间 转化 的 工具类
- * @author Administrator
- *
- */
 public class PojoConvertUtils {
 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
-	/**
-	 * Game 类型 转换 为 DisplayGamesTable；为了 复用性 更好，以 集合 的方式 转换。
-	 * @param game
-	 * @return
-	 */
 	public static List<DisplayGamesTable> GameConvertDisplay(List<Game> gameList){
 		
 		List<DisplayGamesTable> displayList = new ArrayList<DisplayGamesTable>();
@@ -30,14 +20,8 @@ public class PojoConvertUtils {
 		for (Game game : gameList) {
 			DisplayGamesTable displayGamesTable = new DisplayGamesTable();
 			
-			/**
-			 * 复制常规属性，使用的是 spring 的 BeanUtils
-			 */
-			BeanUtils.copyProperties(game, displayGamesTable); // copyProperties 拷贝属性的方法
+			BeanUtils.copyProperties(game, displayGamesTable);
 			
-			/**
-			 * 下面处理特殊 属性（这些属性 ，也是 Game 没有，而DisplayGamesTable 有的）
-			 */
 			String startDateDisplay = sdf.format(game.getStartDate());
 			
 			String signUpLineDisplay = null;
@@ -56,7 +40,6 @@ public class PojoConvertUtils {
 			}
 			
 			String statusDisplay = null;
-			// 状态，0：未开始；1：进行中；2：截止报名；3：已结束；4：已取消
 			if(game.getStatus() == 0){
 				statusDisplay = "未开始";
 			}else if(game.getStatus() == 1){

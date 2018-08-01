@@ -16,34 +16,14 @@
 <script type="text/javascript" src="/res/layui/layui.js"></script>
 
 <script>
-
-	/*$(function(){
-	$('#undetermined1').click(function(){
-		alert("敬请期待")
-	});
-		
-	});*/
-	
-	/*$(document).ready(function(){
-	$('#undetermined1').click(function(){
-		alert("敬请期待");
-	});
-	
-	
-	});*/
-	
-	//layui.use('layer', callback);
-	
 	function undetermined(){
 		layer.alert('暂未开放');
 	}
 </script>
 
 <script>
-	//注意：导航 依赖 element 模块，否则无法进行功能性操作
 	layui.use('element', function(){
 	  var element = layui.element;
 	  
-	  //…
 	});
 </script>

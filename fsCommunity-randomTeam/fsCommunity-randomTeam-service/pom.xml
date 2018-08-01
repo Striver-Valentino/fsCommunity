@@ -6,15 +6,12 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>fsCommunity-randomTeam-service</artifactId>
-  
-  
   <dependencies>
   	<dependency>
   		<groupId>club.fsCommunity</groupId>
 	    <artifactId>fsCommunity-randomTeam-dao</artifactId>
 	    <version>0.0.1-SNAPSHOT</version>
   	</dependency>
-  	<!-- Spring -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context</artifactId>
@@ -39,17 +36,5 @@
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context-support</artifactId>
 	</dependency>
-	
-	
   </dependencies>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 </project>

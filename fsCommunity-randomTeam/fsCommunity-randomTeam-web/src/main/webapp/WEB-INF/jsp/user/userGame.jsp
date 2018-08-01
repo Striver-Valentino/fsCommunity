@@ -23,11 +23,7 @@
 
 	<div class="layui-container fly-marginTop fly-user-main">
 		<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
-			<!-- 
-			<li class="layui-nav-item"><a href="home.html"> <i
-					class="layui-icon">&#xe609;</i> 我的主页
-			</a></li>
-			 -->
+			
 			<li class="layui-nav-item layui-this"><a href="${pageContext.request.contextPath }/user/initUserIndex">
 					<i class="layui-icon">&#xe62d;</i> 我的赛事
 			</a></li>
@@ -51,19 +47,15 @@
 		<div class="site-mobile-shade"></div>
 
 		<div class="fly-panel fly-panel-user" pad20>
-		<!--
-    <div class="fly-msg" style="margin-top: 15px;">
-      您的邮箱尚未验证，这比较影响您的帐号安全，<a href="activate.html">立即去激活？</a>
-    </div>
-    -->
+		
     		<c:choose>
 		    	<c:when test="${requestScope.userHost.status == 0 }">
 		    		<div class="layui-tab layui-tab-brief" lay-filter="user">
 						<ul class="layui-tab-title" id="LAY_mine">
-							<li data-type="mine-jie" lay-id="index" class="layui-this">我报名的赛事 <!-- （<span>89</span>） -->
+							<li data-type="mine-jie" lay-id="index" class="layui-this">我报名的赛事 
 							</li>
 							<li data-type="collection" data-url="/collection/find/"
-								lay-id="collection">我发起的赛事 <!--（<span>16</span>） -->
+								lay-id="collection">我发起的赛事 
 							</li>
 						</ul>
 						<div class="layui-tab-content" style="padding: 20px 0;">
@@ -71,14 +63,12 @@
 							<div class="layui-tab-item layui-show">
 								<ul class="mine-view jie-row">
 								
-									<!-- 报名的赛事 -->
+									
 									<c:forEach items="${requestScope.enrollList }" var="enroll" varStatus="varSta">
 										<li><a class="jie-title" href="${pageContext.request.contextPath }/signUpGame/${enroll.gameId }"
 											target="_blank">${enroll.signupGameName }</a> 
 											<i><fmt:formatDate value="${enroll.enrollDate }" pattern="yyyy-MM-dd HH:mm"/></i> 
-											<!-- 
-											<a class="mine-edit" href="${pageContext.request.contextPath }/signUpGame/${enroll.gameId }" target="_blank">查看对阵</a> 
-											 -->
+											
 											
 											<em>
 											<a class="mine-edit" href="${pageContext.request.contextPath }/teamVs/toteamVs?gameId=${enroll.gameId }" target="_blank">查看对阵</a>
@@ -87,30 +77,19 @@
 										</li>
 									</c:forEach>
 									
-									<!-- 
-									<li><a class="jie-title" href="../jie/detail.html"
-										target="_blank">基于 layui 的极简社区页面模版</a> <i>2017/3/14
-											上午8:30:00</i> <a class="mine-edit" href="/jie/edit/8116">编辑</a> <em>661阅/10答</em>
-									</li>
-									<li><a class="jie-title" href="../jie/detail.html"
-										target="_blank">基于 layui 的极简社区页面模版</a> <i>2017/3/14
-											上午8:30:00</i> <a class="mine-edit" href="/jie/edit/8116">编辑</a> <em>661阅/10答</em>
-									</li>
-									 -->
+									
 								</ul>
 								<div id="LAY_page"></div>
 							</div>
 							
 							<div class="layui-tab-item">
 								<ul class="mine-view jie-row">
-									<!-- 发起的赛事 -->
+									
 									<c:forEach items="${requestScope.launchGameList }" var="launchGame" varStatus="varSta">
 										<li><a class="jie-title" href="${pageContext.request.contextPath }/signUpGame/${launchGame.id }"
 											target="_blank">${launchGame.name }</a> 
 											<i><fmt:formatDate value="${launchGame.launchDate }" pattern="yyyy-MM-dd HH:mm"/></i>
-											<!-- 
-											<a class="mine-edit" href="${pageContext.request.contextPath }/signUpGame/${enroll.gameId }" target="_blank">管理此赛事</a>
-											 -->
+											
 											<em>
 											<a class="mine-edit" href="${pageContext.request.contextPath }/initOrganizeGame/${launchGame.id }" target="_blank">管理此赛事</a>
 											</em>
@@ -125,7 +104,7 @@
 					</div>
 		    	</c:when>
 		    	<c:otherwise>
-		    		<!-- 如果是未激活用户，会显示 提示激活 -->
+		    		
 		    		
 		    		<div class="fly-panel fly-panel-user" pad20>
 					    <div class="layui-tab layui-tab-brief" lay-filter="user">
@@ -139,7 +118,7 @@
 					          <li class="layui-form-li">
 					            <label for="activate">您的邮箱：</label>
 					            <span class="layui-form-text">${requestScope.userHost.email }
-					              <!-- <em style="color:#999;">（已成功激活）</em> -->
+					              
 					              <em style="color:#c00;">（尚未激活）</em>
 					            </span>
 					          </li>
@@ -147,8 +126,7 @@
 					            <div>
 					              1. 如果您未收到邮件，或激活链接失效，您可以
 					              <a class="layui-form-a" style="color:#4f99cf;" id="LAY-activate" href="${pageContext.request.contextPath }/sendActEmailAgain?userId=${requestScope.userHost.id }" email="{{user.email}}">重新发送邮件</a>
-					              	<!-- ，或者
-					              <a class="layui-form-a" style="color:#4f99cf;" href="set.html">更换邮箱</a>； -->
+					              	
 					            </div>
 					            <div>
 					              2. 如果您始终没有收到 fs社区 发送的邮件，请注意查看您邮箱中的垃圾邮件；
@@ -205,15 +183,15 @@
 
 
 
-	<!-- 标记是否是报名成功 请求 过来的 -->
+	
 	<input id="Enrollok" type="hidden" value="${Enrollok }" />
 	
-	<!-- 标记是否是取消赛事 请求 过来的 -->
+	
 	<input id="cancelGameOK" type="hidden" value="${cancelGameOK }" />
 	<input id="cancelGameError" type="hidden" value="${cancelGameError }" />
 	
 	
-	<!-- 如果是未激活用户，弹框 提示 激活 -->
+	
 	<c:choose>
     	<c:when test="${requestScope.userHost.status == 0 }">
     		<input id="actTip" type="hidden" value="0" />
@@ -236,8 +214,6 @@
 		  
 		  
 		    var Enr = $('#Enrollok').val();
-		    //alert("Enr");
-		    //alert(Enr);
 			if(Enr != null && Enr != ""){
 				
 				layer.alert("报名成功！您可以在“我的赛事”里查看。");

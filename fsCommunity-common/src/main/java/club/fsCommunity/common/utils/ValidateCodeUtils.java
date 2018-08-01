@@ -14,41 +14,27 @@ import javax.imageio.ImageIO;
 
 public class ValidateCodeUtils {
 
-	/**
-	 * 生成验证码
-	 * 生成一张图片，且写出到指定的输出流位置
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
-	 */
 	static Random ran = new Random();
 
 	public static String genNewCode(OutputStream out) throws IOException, FileNotFoundException {
 		int width = 120;
 		int height = 40;
-		//在内存中制作一张图片
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		
-		//绘画这张图片
-		//拿到画笔
 		Graphics g = image.getGraphics();
 		
-		//把底色变成灰色
-		g.setColor(Color.CYAN);//颜色
+		g.setColor(Color.CYAN);
 		g.fillRect(0, 0, width, height);
 		
-		//写四个随机数字  5623
 		String number = "";
 		for (int i = 0; i < 4; i++) {
 			number += ran.nextInt(10);
 		}
 		
 		g.setColor(Color.BLACK);
-		//字体
 		g.setFont(new Font("黑体", Font.ITALIC, 35));
-		//写字
 		g.drawString(number, 20, 40);
 		
-		//写随机颜色干扰线
 		for (int i = 0; i < 30; i++) {
 			int x1 = ran.nextInt(width);
 			int x2 = ran.nextInt(width);
@@ -58,14 +44,10 @@ public class ValidateCodeUtils {
 			g.drawLine(x1, y1, x2, y2);
 		}
 		
-		//把图片写出到硬盘
 		ImageIO.write(image, "png", out);
 		return number;
 	}
 	
-	/**
-	 * 生成随机颜色
-	 */
 	private static Color getRandomColr() {
 		int r = ran.nextInt(256);
 		int g = ran.nextInt(256);
@@ -75,9 +57,5 @@ public class ValidateCodeUtils {
 	}
 	
 	
-	public static void main(String[] args) throws Exception {
-		OutputStream out = new FileOutputStream("G:/JAVA/AProject/fsCommunity/code1.png");
-		genNewCode(out);
-	}
 	
 }

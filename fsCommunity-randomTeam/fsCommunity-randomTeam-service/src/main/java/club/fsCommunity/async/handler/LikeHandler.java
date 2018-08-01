@@ -9,11 +9,7 @@ import club.fsCommunity.async.EventHandler;
 import club.fsCommunity.async.EventModel;
 import club.fsCommunity.async.EventType;
 
-/**
- * 处理 点赞事件 的 Handler，实现了 EventHandler
- * @author Administrator
- *
- */
+
 @Service
 public class LikeHandler implements EventHandler {
 

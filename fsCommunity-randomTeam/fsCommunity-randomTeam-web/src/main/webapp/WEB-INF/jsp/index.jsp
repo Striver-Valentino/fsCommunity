@@ -19,19 +19,15 @@
 
 	<jsp:include page="/commons/GamePartMenu.jsp"></jsp:include>
 
-	<!-- 如果是未激活用户，显示重新发送邮件链接 -->
+	
 	<c:choose>
-		<%-- 先判断是否已经登陆 --%>
     	<c:when test="${empty requestScope.userHost }">
-    		<%-- 如果没有登陆，不显示  “重新发送激活邮件” --%>
     		
     	</c:when>
     	<c:when test="${requestScope.userHost.status == 0 }">
-    		<%-- 如果登陆了，并且 用户状态是0，就说明是 已 激活 用户，不显示  “重新发送激活邮件” --%>
 		    
 		</c:when>
     	<c:otherwise>
-    		<%-- 如果前面两个 when 都不成立，即 登陆了，并且 状态 不是 0，那就是 未激活 用户 --%>
     		<div align="center">
     		<font color="red" size="5">
     		<a class="layui-form-a" style="color:#4f99cf;" id="LAY-activate" href="${pageContext.request.contextPath }/sendActEmailAgain?userId=${requestScope.userHost.id }">重新发送激活邮件</a>
@@ -148,19 +144,15 @@
 	<input id="loginSuc" type="hidden" value="${loginsuc }" />
 	<input id="regActSuc" type="hidden" value="${regActSuc }" />
 	
-	<!-- 如果是未激活用户，弹框 提示 激活 -->
+	
 	<c:choose>
-		<%-- 先判断是否已经登陆 --%>
     	<c:when test="${empty requestScope.userHost }">
-    		<%-- 如果没有登陆，就什么都不做 --%>
     		
     	</c:when>
     	<c:when test="${requestScope.userHost.status == 0 }">
-    		<%-- 如果登陆了，并且 用户状态是0，就说明是 已 激活 用户 --%>
 		    <input id="actTip" type="hidden" value="0" />
 		</c:when>
     	<c:otherwise>
-    		<%-- 如果前面两个 when 都不成立，即 登陆了，并且 状态 不是 0，那就是 未激活 用户 --%>
     		<input id="actTip" type="hidden" value="1" />
     	</c:otherwise>
     </c:choose>
@@ -181,12 +173,10 @@
 	<script>
 		layui.use('carousel', function(){
 		  var carousel = layui.carousel;
-		  //建造实例
 		  carousel.render({
 		    elem: '#test1'
-		    ,width: '100%' //设置容器宽度
-		    ,arrow: 'always' //始终显示箭头
-		    //,anim: 'updown' //切换动画方式
+		    ,width: '100%'
+		    ,arrow: 'always' 
 		  });
 		});
 	</script>
@@ -196,25 +186,20 @@
 		layui.use('layer', function(){
 		  var layer = layui.layer;
 		  
-		  //layer.msg('hello');
 		  
 		    var regs = $('#regSuc').val();
-		    //alert(regs);
 			if(regs != null && regs != ""){
-				//layer.msg('注册成功！fs社区欢迎您！', {icon: 6});
 				layer.alert('您已注册成功，请到注册邮箱点击链接激活用户', {icon: 6}); 
 				var regs = "";
 			}
 			
 			var logins = $('#loginSuc').val();
-			//alert(logins);
 			if(logins != null && logins != ""){
 				layer.msg('登录成功！fs社区欢迎您！', {icon: 6});
 				var logins = "";
 			}
 			
 			var rASuc = $('#regActSuc').val();
-			//alert(rASuc);
 			if(rASuc != null && rASuc != "" && rASuc == "激活成功"){
 				layer.msg('您已激活成功！fs社区欢迎您！', {icon: 6});
 				var rASuc = "";

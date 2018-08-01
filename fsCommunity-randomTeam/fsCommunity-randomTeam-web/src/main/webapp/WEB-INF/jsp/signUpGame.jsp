@@ -17,13 +17,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	<style type="text/css">
-        /*h1标签样式*/
+        
         h1 {
-            text-align: center; /*居中*/
-            padding-top:300px; /*距离顶部300px*/
-            font-size: 50px; /*字体大小*/
-            color: purple; /*字体颜色*/
-            font-family:STCaiyun  ; /*设置字体为华文彩云*/
+            text-align: center; 
+            padding-top:300px; 
+            font-size: 50px; 
+            color: purple; 
+            font-family:STCaiyun  ; 
         }
     </style>
     
@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="layui-container">
 
 
-			<!-- 检查赛事状态 -->
+			
 			<c:choose>
 		    	<c:when test="${game.status == 2 }">
 		    		<h1>
@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									
 									<div class="layui-col-md6">
 										<div class="layui-card">
-											<!-- <div class="layui-card-header">卡片面板</div> -->
+											
 											<div class="layui-card-body">
 												
 												<fieldset class="layui-elem-field">
@@ -90,7 +90,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												  <div class="layui-field-box">
 												  	赛事发起者：${game.launchUserName }<br />
 												            目前报名人数：${game.applyCount }<br />
-												    <%-- 发起时间：${game.launchDateDisplay }<br /> --%>
 												            发起时间：<fmt:formatDate value="${game.launchDate }" pattern="yyyy-MM-dd HH:mm"/><br />
 												  </div>
 												</fieldset>
@@ -98,11 +97,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<fieldset class="layui-elem-field">
 												  <legend>赛事时间</legend>
 												  <div class="layui-field-box">
-												  <%-- 
-												  	报名截止时间：${game.signUpLineDisplay }<br />
-												            开始时间：${game.startDateDisplay }<br />
-												            结束时间：${game.endDateDisplay }<br />
-												       --%>      
 												            报名截止时间：<fmt:formatDate value="${game.signUpLine }" pattern="yyyy-MM-dd HH:mm"/><br />
 												            开始时间：<fmt:formatDate value="${game.startDate }" pattern="yyyy-MM-dd HH:mm"/><br />
 												            结束时间：<fmt:formatDate value="${game.endDate }" pattern="yyyy-MM-dd HH:mm"/><br />
@@ -174,16 +168,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			
 			
-			<!-- 隐藏域，保存用户id与赛事id -->
+			
 			<input type="hidden" id="userid" value="${sessionScope.loginUser.id }" />
-			<!-- <input type="hidden" id="gameid" value="${game.id }" /> -->
+			
 			<input type="hidden" id="gameid" value="${gameId }" />
-			<!-- 赛事名称 -->
+			
 			<input type="hidden" id="signupGameName" value="${game.name }" />
-			<!-- 赛事状态 -->
+			
 			<input type="hidden" id="gameStatus" value="${game.status }" />
 			
-			<!-- 绝对路径，项目路径 -->
+			
 			<input id="basePath" type="hidden" value="<%=basePath %>"/>
 
 		</div>
@@ -211,10 +205,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <script>
-	function goBack1(){ // 如果用 goBack() 命名 方法 ，会与 内置 的 返回方法（也叫goBack()）  冲突
+	function goBack1(){ 
 		
 		var basePath = $('#basePath').val();
-		//alert("goBack1");
 		window.location.href = basePath + "toSearchGame";
 	}
 
@@ -223,78 +216,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 
 	function signUpNow(){
-		/*layui.use('layer', function(){
-		 	var layer = layui.layer;
-		  
-			//iframe层-父子操作
-			layer.open({
-			  type: 2,
-			  area: ['1000px', '700px'],
-			  fixed: false, //不固定
-			  maxmin: false, // 可 最大化、最小化
-			  content: 'initSignUpDetails'
-			  
-			  success: function(layero, index){
-			    var body = layer.getChildFrame('body', index);
-			    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
-			    alert(iframeWin);
-			    console.log(body.html()); //得到iframe页的body内容
-			    body.find('input').val('Hi，我是从父页来的');
-			  }
-			
-			});
-		  
-		  
-		  
-		}); */
 		
-		//alert("我要报名");
+		
 		var basePath = $('#basePath').val();
 		
 		
 		layui.use('layer', function(){
 		 	var layer = layui.layer;
 			layer.open({
-	            id: 'LAY_layuipro', //设定一个id，防止重复弹出
+	            id: 'LAY_layuipro', 
 	            type: 2,
 	            title:'填写报名信息',
 	            area: ['1000px', '700px'],
-	            fixed: false, //不固定
-				maxmin: false, // 可 最大化、最小化
-	            content: basePath + 'initSignUpDetails', // 弹出的小窗口的页面内容，从 这个 请求 链接 获得
+	            fixed: false, 
+				maxmin: false, 
+	            content: basePath + 'initSignUpDetails', 
 	            btn: ['确定','取消'],
 	            yes: function(index, layero){
-	            	//alert("yes1");
-	            	// 获得 子页面 的 表单对象
 	                var signupdetailForm = $(window.frames["layui-layer-iframe" + index].document).contents().find("#signupdetail");
-	                //alert(signupdetailForm);
 	                
 	                var gameId = $('#gameid').val();
 	                var userId = $('#userid').val(); 
 	                var signupGameName = $('#signupGameName').val(); 
 	                
-	                //alert(gameId);
-	                //alert(userId);
 	                
-	                signupdetailForm.ajaxSubmit({ // 子页面 的 表单对象 以 ajax 方式 提交
-	                    url:'/submitEnroll',
+	                signupdetailForm.ajaxSubmit({ 
 	                    data:{"gameId":gameId,"userId":userId,"signupGameName":signupGameName},
 	                    type:'post',
 	                    dataType:'json',
 	                    success:function(result){
-	                    	//alert("hello");
-	                    	//alert(result);
 	                        if(result.data=='EnrollOK'){
 	                            layer.closeAll();
-	                            //layer.alert("报名成功！");
-	                            //alert("报名");
-	                            //reloadData();   // 重新加载列表
-	                            //window.location.href = "/";
 	                            window.location.href = basePath + "user/initUserIndex?Enrollok=ok";
 	                            
 	                        }else{
-	                        	//alert("error");
-	                        	//alert(result.data);
 	                        	
 	                        	var jsonobj=eval("("+result.data+")");
 	                        	
@@ -303,9 +258,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                        }
 	                    }
 	                });
-	                //alert("yes2");
 	            },btn2: function(){
-	            	//alert("no");
 	                layer.closeAll();
 	            }
 	        });
@@ -347,27 +300,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</script>
 
 	<script type="text/javascript">
-	    // JavaScript 倒计时页面跳转
 	        var gameStatus = $('#gameStatus').val();
 	        
-	        if(gameStatus != 1 && gameStatus != 1){ // 赛事状态不是0，并且也不是1的时候，才执行下面操作
+	        if(gameStatus != 1 && gameStatus != 1){ 
 	        	var basePath = $('#basePath').val();
 	            var span = document.getElementById("second");
-	            // setInterval就是开启一个计时器，里面传入一个方法和一个时间
-	            // 表示每隔这个时间间隔调用一次这个方法
 	            var intervalId = setInterval(function () {
-	                // var num = span.innerHTML - 1;    //等价下面三行
-	                //innerHTML：获得或设置一个标签下的内容（内容可以是HTML格式的）：
 	                var numstr = span.innerHTML;
 	                var num = parseInt(numstr);
 	                num--;
 	 
 	                span.innerHTML = num;
-	                //alert("在倒计时");
 	                if (num <= 0) {
-	                    // 停下计时器
 	                    clearInterval(intervalId);
-	                    //跳转到赛事搜索页
 	                    location.href = basePath + "toSearchGame";
 	                }
 	            }, 1000);
@@ -391,20 +336,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		layui.use('layer', function(){
 		 	var layer = layui.layer;
 			layer.open({
-	            id: 'LAY_layuipro1', //设定一个id，防止重复弹出
+	            id: 'LAY_layuipro1', 
 	            type: 2,
 	            title:'查看参赛选手',
 	            area: ['1000px', '700px'],
-	            fixed: false, //不固定
-				maxmin: false, // 可 最大化、最小化
-	            content: basePath + 'toShowContestant?gameId=' + gameId, // 弹出的小窗口的页面内容，从 这个 请求 链接 获得
-	            //btn: ['关闭','取消'],
+	            fixed: false, 
+				maxmin: false, 
+	            content: basePath + 'toShowContestant?gameId=' + gameId, 
 	            btn: ['关闭'],
 	            yes: function(index, layero){
 	            	layer.closeAll();
-	            }/*,btn2: function(){
-	                layer.closeAll();
-	            }*/
+	            }
 	        });
 			
 		});

@@ -29,11 +29,7 @@ public class IndexController {
 		return "indexTest";
 	}
 	
-	/**
-	 * 跳转到首页
-	 * @param model
-	 * @return
-	 */
+	
 	@RequestMapping("/")
 	public String showIndex(Model model){
 		List<Game> list = gameService.selectAllGamesLastWeek();
@@ -44,11 +40,7 @@ public class IndexController {
 	}
 	
 	
-	/**
-	 * 跳转到 网站简介页面
-	 * @param model
-	 * @return
-	 */
+	
 	@RequestMapping("/initwebsiteIntroduction")
 	public String initwebsiteIntroduction(Model model){
 		
@@ -56,11 +48,7 @@ public class IndexController {
 	}
 	
 	
-	/**
-	 * 跳转到 用户服务条款 页面
-	 * @param model
-	 * @return
-	 */
+	
 	@RequestMapping("/inittermsOfService")
 	public String inittermsOfService(Model model){
 		

@@ -5,11 +5,6 @@ import java.util.Map.Entry;
 
 import com.alibaba.fastjson.JSONObject;
 
-/**
- * 把相关提示信息封装成json格式
- * @author Administrator
- *
- */
 public class JsonUtil {
 
 	public static String getJSONString(int code){

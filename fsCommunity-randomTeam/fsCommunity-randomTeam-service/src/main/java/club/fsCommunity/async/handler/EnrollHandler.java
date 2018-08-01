@@ -17,11 +17,7 @@ import club.fsCommunity.pojo.Game;
 import club.fsCommunity.service.EnrollService;
 import club.fsCommunity.service.GameService;
 
-/**
- * 报名成功 处理器，主要是 计算 报名 信息 的 能力分值
- * @author Administrator
- *
- */
+
 @Service
 public class EnrollHandler implements EventHandler {
 	
@@ -54,9 +50,7 @@ public class EnrollHandler implements EventHandler {
 		
 		
 		
-		/**
-		 * 对应 的 赛事   报名 人数+1
-		 */
+		
 		String gameId = eventModel.getExt("gameId");
 		Map<String, Object> map2 = gameService.applyCountAddOne(gameId);
 		

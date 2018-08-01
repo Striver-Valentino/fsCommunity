@@ -22,10 +22,7 @@ public class EnrollController {
 	@Autowired
 	private EnrollService enrollService;
 	
-	/**
-	 * 用户提交报名
-	 * @return
-	 */
+	
 	@RequestMapping("/submitEnroll")
 	@ResponseBody
 	public Map<String, Object> submitEnroll(Enroll enroll,Model model){
@@ -45,12 +42,7 @@ public class EnrollController {
 		}
 	}
 	
-	/**
-	 * 根据 gameId 查找 参赛选手
-	 * @param page
-	 * @param limit
-	 * @return
-	 */
+	
 	@RequestMapping("/showContestant/{gameId}")
 	@ResponseBody
 	public LayuiTableData showContestant(
@@ -67,10 +59,7 @@ public class EnrollController {
 		
 	}
 	
-	/**
-	 *  跳转到 showContestant.jsp
-	 * @return
-	 */
+	
 	@RequestMapping("/toShowContestant")
 	public String toShowContestant(@RequestParam("gameId") String gameId,Model model){
 		
@@ -78,10 +67,9 @@ public class EnrollController {
 		
 		model.addAttribute("gameId", gameId);
 		
-		return "game/showContestant"; // 跳转到 showContestant.jsp
+		return "game/showContestant";
 	}
 	
-	// 测试URL
 	@RequestMapping("/testUrl")
 	public String testUrl(@RequestParam("hello") String hello){
 		
